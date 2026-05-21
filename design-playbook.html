@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Design Playbook & Processos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================
+     DESIGN TOKENS
+     ============================================ */
+  :root,
+  [data-theme="dark"] {
+    /* Neutral */
+    --text-primary: #FFFFFF;
+    --text-secondary: #C1C1C1;
+    --text-disable: #858585;
+    --text-active: #101010;
+    --bg-primary: #101010;
+    --bg-secondary: #1B1B1B;
+    --bg-tertiary: #282828;
+    --bg-disable: #464646;
+    --bg-active: #FFFFFF;
+    --hover-bg-primary: #1B1B1B;
+    --hover-bg-secondary: #282828;
+    --hover-bg-tertiary: #464646;
+    --border-primary: #464646;
+    --border-secondary: #333333;
+
+    /* Main — Brand */
+    --main-text: #71DCD0;
+    --main-bg-primary: #006654;
+    --main-bg-secondary: #003327;
+    --main-hover: #005C46;
+    --main-border: #006654;
+    --main-brand: #00A391;
+
+    /* Complementary */
+    --complementary-text: #E3E9F6;
+    --complementary-bg-primary: #304664;
+    --complementary-bg-secondary: #17283A;
+    --complementary-brand: #5D7A9C;
+
+    /* Status */
+    --success-text: #63BE36;
+    --success-bg-primary: #448325;
+    --success-bg-secondary: #204210;
+    --warning-text: #FFC60B;
+    --warning-bg-primary: #FFC60B;
+    --warning-bg-secondary: #473802;
+    --error-text: #FF2424;
+    --error-bg-primary: #E81C24;
+    --error-bg-secondary: #700707;
+    --informative-text: #00AEEF;
+    --informative-bg-primary: #00AEEF;
+    --informative-bg-secondary: #003B61;
+
+    /* Avatar / Accents */
+    --avatar-1: #253C75;
+    --avatar-2: #448325;
+    --avatar-3: #63BE36;
+    --avatar-4: #F89C1B;
+    --avatar-5: #E81C24;
+
+    /* Analogous */
+    --analogous-bg: #3F1F63;
+
+    /* Theme-specific decorative */
+    --grid-line: rgba(255, 255, 255, 0.04);
+    --grid-line-strong: rgba(255, 255, 255, 0.08);
+    --glow: rgba(0, 163, 145, 0.18);
+    --noise-opacity: 0.025;
+  }
+
+  [data-theme="light"] {
+    /* Neutral */
+    --text-primary: #101010;
+    --text-secondary: #646464;
+    --text-disable: #A3A3A3;
+    --text-active: #FFFFFF;
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F5F5F5;
+    --bg-tertiary: #EBEBEB;
+    --bg-disable: #DCDCDC;
+    --bg-active: #101010;
+    --hover-bg-primary: #F5F5F5;
+    --hover-bg-secondary: #EBEBEB;
+    --hover-bg-tertiary: #DCDCDC;
+    --border-primary: #C1C1C1;
+    --border-secondary: #DCDCDC;
+
+    /* Main — Brand */
+    --main-text: #006654;
+    --main-bg-primary: #006654;
+    --main-bg-secondary: #ADE9E2;
+    --main-hover: #005C46;
+    --main-border: #006654;
+    --main-brand: #00A391;
+
+    /* Complementary */
+    --complementary-text: #1D3249;
+    --complementary-bg-primary: #304664;
+    --complementary-bg-secondary: #F1F2FA;
+    --complementary-brand: #5D7A9C;
+
+    /* Status */
+    --success-text: #448325;
+    --success-bg-primary: #448325;
+    --success-bg-secondary: #D7F1C7;
+    --warning-text: #B88800;
+    --warning-bg-primary: #FFC60B;
+    --warning-bg-secondary: #FEEDB4;
+    --error-text: #BE0F0F;
+    --error-bg-primary: #E81C24;
+    --error-bg-secondary: #FFD1D1;
+    --informative-text: #077CC0;
+    --informative-bg-primary: #00AEEF;
+    --informative-bg-secondary: #B2EAFF;
+
+    /* Avatar / Accents */
+    --avatar-1: #253C75;
+    --avatar-2: #448325;
+    --avatar-3: #63BE36;
+    --avatar-4: #F89C1B;
+    --avatar-5: #E81C24;
+
+    /* Analogous */
+    --analogous-bg: #3F1F63;
+
+    /* Theme-specific decorative */
+    --grid-line: rgba(16, 16, 16, 0.05);
+    --grid-line-strong: rgba(16, 16, 16, 0.10);
+    --glow: rgba(0, 102, 84, 0.10);
+    --noise-opacity: 0.04;
+  }
+
+  /* ============================================
+     RESET & BASE
+     ============================================ */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-weight: 400;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.5;
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  /* Subtle background grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Grain texture */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/></svg>");
+    opacity: var(--noise-opacity);
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: overlay;
+  }
+
+  ::selection {
+    background: var(--main-brand);
+    color: #FFFFFF;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  /* ============================================
+     LAYOUT
+     ============================================ */
+  .container {
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+    position: relative;
+    z-index: 2;
+  }
+
+  .container--narrow {
+    max-width: 980px;
+  }
+
+  /* ============================================
+     TOP NAV
+     ============================================ */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: color-mix(in srgb, var(--bg-primary) 75%, transparent);
+    border-bottom: 1px solid var(--border-secondary);
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1.125rem;
+  }
+
+  .nav__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.825rem;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+  }
+
+  .nav__brand-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    background:
+      linear-gradient(135deg, var(--main-brand), var(--main-bg-primary));
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+
+  .nav__brand-mark::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1.5px solid rgba(255,255,255,0.85);
+    border-radius: 3px;
+    transform: rotate(45deg);
+  }
+
+  .nav__brand-meta {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .nav__brand-meta small {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .nav__links {
+    display: none;
+    gap: 2rem;
+    font-size: 0.875rem;
+  }
+
+  .nav__links a {
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+    position: relative;
+  }
+  .nav__links a:hover { color: var(--text-primary); }
+  .nav__links a::before {
+    content: counter(navi, decimal-leading-zero) ' / ';
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-disable);
+    margin-right: 0.35em;
+  }
+  .nav__links { counter-reset: navi 0; }
+  .nav__links a { counter-increment: navi; }
+
+  @media (min-width: 900px) {
+    .nav__links { display: flex; }
+  }
+
+  .nav__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.85rem;
+    border: 1px solid var(--border-primary);
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    transition: all 0.2s ease;
+    background: transparent;
+  }
+  .theme-toggle:hover {
+    background: var(--hover-bg-secondary);
+    border-color: var(--main-brand);
+  }
+  .theme-toggle__dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--main-brand);
+    box-shadow: 0 0 12px var(--main-brand);
+  }
+
+  /* ============================================
+     HERO
+     ============================================ */
+  .hero {
+    position: relative;
+    padding-top: clamp(4rem, 10vw, 8rem);
+    padding-bottom: clamp(4rem, 8vw, 6rem);
+    overflow: hidden;
+  }
+
+  .hero__inner {
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    padding: 0.5rem 0.875rem;
+    border: 1px solid var(--border-primary);
+    border-radius: 999px;
+    width: max-content;
+    background: color-mix(in srgb, var(--bg-secondary) 60%, transparent);
+  }
+
+  .hero__eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--main-brand);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--main-brand) 18%, transparent);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(0.85); }
+  }
+
+  .hero__title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: clamp(2.75rem, 7.5vw, 6.5rem);
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    max-width: 18ch;
+  }
+
+  .hero__title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--main-text);
+  }
+
+  .hero__subtitle {
+    font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+    line-height: 1.55;
+    color: var(--text-secondary);
+    max-width: 60ch;
+    font-weight: 400;
+  }
+
+  .hero__quote {
+    margin-top: 0.5rem;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--main-brand);
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+    font-weight: 400;
+    color: var(--text-primary);
+    max-width: 50ch;
+  }
+
+  .hero__meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--border-secondary);
+    border: 1px solid var(--border-secondary);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: clamp(1.5rem, 4vw, 3rem);
+    max-width: 800px;
+  }
+
+  .hero__meta-item {
+    background: var(--bg-primary);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .hero__meta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-disable);
+  }
+
+  .hero__meta-value {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  /* decorative hero shape */
+  .hero__deco {
+    position: absolute;
+    right: -120px;
+    top: 80px;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--glow), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ============================================
+     SECTION SHELL
+     ============================================ */
+  .section {
+    padding-block: clamp(4rem, 8vw, 7rem);
+    position: relative;
+    border-top: 1px solid var(--border-secondary);
+  }
+
+  .section__head {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
+  }
+
+  @media (min-width: 760px) {
+    .section__head {
+      grid-template-columns: minmax(160px, 200px) 1fr;
+      gap: clamp(2rem, 5vw, 4rem);
+    }
+  }
+
+  .section__number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--main-text);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .section__number-marker {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+  }
+  .section__number-line {
+    height: 1px;
+    background: var(--border-primary);
+    width: 60%;
+    margin-top: 0.5rem;
+  }
+
+  .section__title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.85rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+
+  .section__title em {
+    font-style: italic;
+    color: var(--main-text);
+  }
+
+  .section__intro {
+    font-size: clamp(1rem, 1.3vw, 1.125rem);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 65ch;
+    margin-top: 1rem;
+  }
+
+  /* ============================================
+     STEPS LIST (Section 2 & 4)
+     ============================================ */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 6vw, 5rem);
+    counter-reset: stepc;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    align-items: start;
+    counter-increment: stepc;
+  }
+
+  @media (min-width: 880px) {
+    .step {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    }
+    .step--reverse .step__text { order: 2; }
+    .step--reverse .step__media { order: 1; }
+  }
+
+  .step__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 0.25rem;
+  }
+
+  .step__index {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--main-text);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  .step__index::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--main-brand);
+  }
+  .step__index::after {
+    content: 'STEP ' counter(stepc, decimal-leading-zero);
+  }
+
+  .step__title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .step__body {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .step__placeholder-text {
+    padding: 1rem 1.25rem;
+    border-left: 2px dashed var(--border-primary);
+    color: var(--text-disable);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.825rem;
+    line-height: 1.6;
+  }
+
+  .step__media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-secondary);
+    border-radius: 16px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    color: var(--text-disable);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    transition: border-color 0.3s ease;
+    background-image:
+      radial-gradient(circle at 1px 1px, var(--grid-line-strong) 1px, transparent 0);
+    background-size: 16px 16px;
+  }
+
+  .step__media::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, color-mix(in srgb, var(--bg-secondary) 90%, transparent));
+    pointer-events: none;
+  }
+
+  .step__media-label {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.625rem;
+    color: var(--text-secondary);
+  }
+
+  .step__media-label-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    display: grid;
+    place-items: center;
+    font-size: 1.1rem;
+  }
+
+  .step__media-corner {
+    position: absolute;
+    top: 0.875rem;
+    left: 0.875rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-disable);
+    z-index: 1;
+    background: color-mix(in srgb, var(--bg-primary) 70%, transparent);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--border-secondary);
+  }
+
+  /* ============================================
+     SECTION 03 — Guidelines (cards)
+     ============================================ */
+  .guidelines {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 760px) {
+    .guidelines { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .gl-card {
+    border: 1px solid var(--border-secondary);
+    background: var(--bg-secondary);
+    border-radius: 18px;
+    padding: clamp(1.5rem, 2.5vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .gl-card:hover {
+    border-color: var(--main-brand);
+    transform: translateY(-2px);
+  }
+
+  .gl-card__number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--text-disable);
+  }
+
+  .gl-card__title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+
+  .gl-card__body {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .gl-card__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+  }
+  .gl-card__list li {
+    display: flex;
+    gap: 0.625rem;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+  .gl-card__list li::before {
+    content: '→';
+    color: var(--main-brand);
+    font-family: 'JetBrains Mono', monospace;
+    flex-shrink: 0;
+    margin-top: 0.05em;
+  }
+
+  .gl-card__list li strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* code chips */
+  .code-chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82em;
+    background: var(--bg-tertiary);
+    padding: 0.1em 0.45em;
+    border-radius: 4px;
+    border: 1px solid var(--border-secondary);
+    color: var(--main-text);
+    white-space: nowrap;
+  }
+
+  /* Naming table */
+  .naming {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    border: 1px solid var(--border-secondary);
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+  }
+
+  .naming__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-disable);
+  }
+  .naming__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--border-secondary);
+  }
+  .naming__row:first-child { border-top: none; }
+
+  .naming__cell {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    border-right: 1px solid var(--border-secondary);
+  }
+  .naming__cell:last-child { border-right: none; }
+
+  .naming__cell--good { color: var(--success-text); }
+  .naming__cell--bad { color: var(--error-text); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--error-text) 50%, transparent); }
+
+  .naming__cell-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid;
+  }
+  .naming__cell-tag--good {
+    color: var(--success-text);
+    border-color: var(--success-text);
+    background: var(--success-bg-secondary);
+  }
+  .naming__cell-tag--bad {
+    color: var(--error-text);
+    border-color: var(--error-text);
+    background: var(--error-bg-secondary);
+  }
+
+  /* File pages organization */
+  .file-pages {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 700px) {
+    .file-pages { grid-template-columns: 280px 1fr; }
+  }
+
+  .file-pages__intro {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .file-pages__intro h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .file-pages__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-secondary);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+  }
+
+  .file-pages__list li {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.95rem 1.25rem;
+    border-bottom: 1px solid var(--border-secondary);
+    transition: background-color 0.2s ease;
+  }
+  .file-pages__list li:last-child { border-bottom: none; }
+  .file-pages__list li:hover { background: var(--bg-tertiary); }
+
+  .file-pages__emoji {
+    font-size: 1.05rem;
+    width: 24px;
+    text-align: center;
+  }
+
+  .file-pages__name {
+    color: var(--text-primary);
+    flex: 1;
+  }
+
+  .file-pages__purpose {
+    color: var(--text-disable);
+    font-size: 0.78rem;
+    text-align: right;
+  }
+
+  /* ============================================
+     CALLOUTS
+     ============================================ */
+  .callout {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    align-items: start;
+    border: 1px solid;
+  }
+
+  .callout--error {
+    background: var(--error-bg-secondary);
+    border-color: var(--error-text);
+    color: var(--text-primary);
+  }
+  [data-theme="light"] .callout--error {
+    color: var(--error-text);
+  }
+
+  .callout--warning {
+    background: var(--warning-bg-secondary);
+    border-color: var(--warning-text);
+    color: var(--text-primary);
+  }
+  [data-theme="light"] .callout--warning {
+    color: var(--warning-text);
+  }
+
+  .callout--info {
+    background: var(--informative-bg-secondary);
+    border-color: var(--informative-text);
+    color: var(--text-primary);
+  }
+  [data-theme="light"] .callout--info {
+    color: var(--informative-text);
+  }
+
+  .callout__icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: color-mix(in srgb, currentColor 18%, transparent);
+    flex-shrink: 0;
+    color: inherit;
+  }
+
+  .callout__icon svg {
+    width: 18px; height: 18px;
+    stroke: currentColor;
+  }
+
+  .callout__content {
+    color: var(--text-primary);
+  }
+
+  [data-theme="light"] .callout--error .callout__content,
+  [data-theme="light"] .callout--warning .callout__content,
+  [data-theme="light"] .callout--info .callout__content {
+    color: var(--text-primary);
+  }
+
+  .callout__label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: inherit;
+  }
+
+  .callout--error .callout__label { color: var(--error-text); }
+  .callout--warning .callout__label { color: var(--warning-text); }
+  .callout--info .callout__label { color: var(--informative-text); }
+
+  .callout__title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 0.35rem;
+  }
+
+  .callout__text {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+
+  [data-theme="light"] .callout--error .callout__text,
+  [data-theme="light"] .callout--warning .callout__text,
+  [data-theme="light"] .callout--info .callout__text {
+    color: color-mix(in srgb, var(--text-primary) 75%, transparent);
+  }
+
+  /* ============================================
+     FOOTER / FAQ
+     ============================================ */
+  .footer {
+    border-top: 1px solid var(--border-secondary);
+    padding-block: clamp(4rem, 8vw, 6rem);
+    position: relative;
+  }
+
+  .footer__head {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .footer__eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--main-text);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .footer__title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    max-width: 22ch;
+  }
+
+  .footer__title em { font-style: italic; color: var(--main-text); }
+
+  .footer__grid {
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 880px) {
+    .footer__grid { grid-template-columns: 1.05fr 0.95fr; }
+  }
+
+  .faq {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--border-secondary);
+  }
+
+  .faq__item {
+    border-bottom: 1px solid var(--border-secondary);
+  }
+
+  .faq__btn {
+    width: 100%;
+    text-align: left;
+    padding: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    transition: color 0.2s ease;
+  }
+  .faq__btn:hover { color: var(--main-text); }
+
+  .faq__icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border-primary);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .faq__icon::before, .faq__icon::after {
+    content: '';
+    position: absolute;
+    background: var(--text-primary);
+    transition: transform 0.3s ease;
+  }
+  .faq__icon::before {
+    width: 12px;
+    height: 1.5px;
+  }
+  .faq__icon::after {
+    width: 1.5px;
+    height: 12px;
+  }
+
+  .faq__item[open] .faq__icon {
+    background: var(--main-brand);
+    border-color: var(--main-brand);
+  }
+  .faq__item[open] .faq__icon::before,
+  .faq__item[open] .faq__icon::after { background: #FFFFFF; }
+  .faq__item[open] .faq__icon::after { transform: scaleY(0); }
+
+  .faq__answer {
+    padding: 0 0 1.5rem 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    max-width: 65ch;
+  }
+
+  /* Contact card */
+  .contact-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-secondary);
+    border-radius: 20px;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--glow), transparent 70%);
+    pointer-events: none;
+  }
+
+  .contact-card__label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-disable);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .contact-card__label::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--success-text);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--success-text) 25%, transparent);
+  }
+
+  .contact-card__title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+
+  .contact-card__desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .contact-card__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin-top: 0.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--border-primary);
+    position: relative;
+  }
+
+  .contact-card__list li {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    font-size: 0.92rem;
+  }
+
+  .contact-card__list-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-secondary);
+    display: grid;
+    place-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--main-text);
+    flex-shrink: 0;
+  }
+
+  .contact-card__list-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .contact-card__list-text strong {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+  }
+  .contact-card__list-text span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+  }
+
+  /* Bottom strip */
+  .bottom-strip {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-disable);
+    letter-spacing: 0.04em;
+  }
+
+  @media (min-width: 700px) {
+    .bottom-strip {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .bottom-strip__version {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  /* ============================================
+     SCROLL REVEAL
+     ============================================ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ============================================
+     ANCHOR OFFSET
+     ============================================ */
+  .section, .footer { scroll-margin-top: 80px; }
+
+</style>
+</head>
+<body>
+
+  <!-- ============== NAV ============== -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#top" class="nav__brand">
+          <span class="nav__brand-mark" aria-hidden="true"></span>
+          <span class="nav__brand-meta">
+            <strong>DESIGN</strong>
+            <small>playbook & processos</small>
+          </span>
+        </a>
+        <div class="nav__links">
+          <a href="#setup">Setup Figma</a>
+          <a href="#diretrizes">Diretrizes</a>
+          <a href="#organizacao">Telas</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="nav__actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+            <span class="theme-toggle__dot"></span>
+            <span id="themeLabel">DARK</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============== HERO ============== -->
+  <header class="hero" id="top">
+    <div class="hero__deco" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero__inner">
+        <span class="hero__eyebrow reveal">Documentação interna · v1.0 · Atualizado em mai/2026</span>
+
+        <h1 class="hero__title reveal">
+          Design Playbook<br>
+          <em>&amp; Processos</em>
+        </h1>
+
+        <p class="hero__subtitle reveal">
+          Tudo o que você precisa para configurar o ambiente, entender nossos padrões e
+          entregar com consistência desde o primeiro <em style="font-style:italic;color:var(--main-text)">commit visual</em>.
+          Um único lugar para alinhar ferramentas, nomenclatura e processo.
+        </p>
+
+        <blockquote class="hero__quote reveal">
+          “Design é colaboração com método — bonito por consequência,
+          consistente por princípio.”
+        </blockquote>
+
+        <div class="hero__meta reveal">
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">Tempo de leitura</span>
+            <span class="hero__meta-value">~12 minutos</span>
+          </div>
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">Para</span>
+            <span class="hero__meta-value">Time de Design</span>
+          </div>
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">Mantido por</span>
+            <span class="hero__meta-value">Time de Design System</span>
+          </div>
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">Status</span>
+            <span class="hero__meta-value" style="color:var(--success-text)">● Em produção</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============== SECTION 02 — SETUP FIGMA ============== -->
+  <section class="section" id="setup">
+    <div class="container">
+      <div class="section__head reveal">
+        <div class="section__number">
+          <span>SEÇÃO</span>
+          <span class="section__number-marker">02</span>
+          <span class="section__number-line"></span>
+        </div>
+        <div>
+          <h2 class="section__title">Setup do <em>Figma</em> — do zero ao dia 1.</h2>
+          <p class="section__intro">
+            Um guia prático e enxuto para deixar seu Figma pronto para o trabalho do time.
+            Siga os passos abaixo na ordem — em menos de 20 minutos você estará alinhado com a configuração
+            que usamos diariamente.
+          </p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <!-- STEP 01 -->
+        <article class="step reveal">
+          <div class="step__text">
+            <span class="step__index"></span>
+            <h3 class="step__title">Título do passo 01</h3>
+            <div class="step__placeholder-text">
+              // Bloco de texto editável — descreva aqui o que o designer<br>
+              // precisa fazer no primeiro passo de configuração.<br>
+              // Ex.: criar conta, entrar no time, ativar plugins, etc.
+            </div>
+          </div>
+          <div class="step__media">
+            <span class="step__media-corner">img/setup-01.png</span>
+            <div class="step__media-label">
+              <div class="step__media-label-icon">🖼</div>
+              Espaço reservado para imagem
+            </div>
+          </div>
+        </article>
+
+        <!-- STEP 02 -->
+        <article class="step step--reverse reveal">
+          <div class="step__text">
+            <span class="step__index"></span>
+            <h3 class="step__title">Título do passo 02</h3>
+            <div class="step__placeholder-text">
+              // Bloco de texto editável — descreva aqui o segundo passo.<br>
+              // Ex.: conectar bibliotecas, ativar Variables, configurar atalhos.
+            </div>
+          </div>
+          <div class="step__media">
+            <span class="step__media-corner">img/setup-02.png</span>
+            <div class="step__media-label">
+              <div class="step__media-label-icon">🖼</div>
+              Espaço reservado para imagem
+            </div>
+          </div>
+        </article>
+
+        <!-- STEP 03 -->
+        <article class="step reveal">
+          <div class="step__text">
+            <span class="step__index"></span>
+            <h3 class="step__title">Título do passo 03</h3>
+            <div class="step__placeholder-text">
+              // Bloco de texto editável — descreva aqui o terceiro passo.<br>
+              // Ex.: instalar plugins essenciais, configurar fontes locais.
+            </div>
+          </div>
+          <div class="step__media">
+            <span class="step__media-corner">img/setup-03.png</span>
+            <div class="step__media-label">
+              <div class="step__media-label-icon">🖼</div>
+              Espaço reservado para imagem
+            </div>
+          </div>
+        </article>
+
+        <!-- STEP 04 -->
+        <article class="step step--reverse reveal">
+          <div class="step__text">
+            <span class="step__index"></span>
+            <h3 class="step__title">Título do passo 04</h3>
+            <div class="step__placeholder-text">
+              // Bloco de texto editável — descreva aqui o quarto passo.<br>
+              // Ex.: validar setup com checklist final.
+            </div>
+          </div>
+          <div class="step__media">
+            <span class="step__media-corner">img/setup-04.png</span>
+            <div class="step__media-label">
+              <div class="step__media-label-icon">🖼</div>
+              Espaço reservado para imagem
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="callout callout--info reveal">
+        <div class="callout__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        </div>
+        <div class="callout__content">
+          <div class="callout__label">Boa prática</div>
+          <h4 class="callout__title">Conferiu tudo? Faça o handshake com seu lead.</h4>
+          <p class="callout__text">
+            Antes de pegar a primeira tarefa, peça uma revisão rápida do setup com o lead de design.
+            Esse alinhamento de 5 minutos economiza horas de retrabalho depois.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== SECTION 03 — DIRETRIZES ============== -->
+  <section class="section" id="diretrizes">
+    <div class="container">
+      <div class="section__head reveal">
+        <div class="section__number">
+          <span>SEÇÃO</span>
+          <span class="section__number-marker">03</span>
+          <span class="section__number-line"></span>
+        </div>
+        <div>
+          <h2 class="section__title">Diretrizes &amp; padrões <em>visuais</em>.</h2>
+          <p class="section__intro">
+            As regras do jogo antes de colocar a mão na massa. Esta seção define como consumir
+            o Design System, nomear camadas e organizar arquivos — três pilares que mantêm
+            nossos projetos legíveis para o time todo.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3 cards -->
+      <div class="guidelines">
+        <article class="gl-card reveal">
+          <span class="gl-card__number">01 / Design System</span>
+          <h3 class="gl-card__title">Como consumir nossas bibliotecas globais.</h3>
+          <p class="gl-card__body">
+            Toda interface começa pelo Design System. Ele é a fonte única da verdade —
+            cores, espaçamentos, tipografia e componentes vivem lá.
+          </p>
+          <ul class="gl-card__list">
+            <li><span><strong>Ative</strong> a biblioteca <span class="code-chip">OL/Foundations</span> e <span class="code-chip">OL/Components</span> em todo arquivo novo.</span></li>
+            <li><span><strong>Nunca</strong> faça override de componentes — proponha uma evolução no DS.</span></li>
+            <li><span>Use sempre <strong>tokens</strong>: cor, espaçamento e tipografia por variável, nunca hard-coded.</span></li>
+            <li><span>Encontrou um gap? Abra uma <strong>request</strong> no canal do DS.</span></li>
+          </ul>
+        </article>
+
+        <article class="gl-card reveal">
+          <span class="gl-card__number">02 / Nomenclatura</span>
+          <h3 class="gl-card__title">Camadas e componentes legíveis.</h3>
+          <p class="gl-card__body">
+            Uma camada bem nomeada é um presente para o próximo designer (e para o dev).
+            Seja descritivo, evite genéricos como <span class="code-chip">Rectangle 23</span>.
+          </p>
+          <ul class="gl-card__list">
+            <li><span>Padrão: <strong>função/elemento/estado</strong> — ex.: <span class="code-chip">btn/primary/hover</span>.</span></li>
+            <li><span>Use <strong>kebab-case</strong> e remova números automáticos do Figma.</span></li>
+            <li><span>Variants seguem <strong>props</strong> documentadas (size, state, variant).</span></li>
+            <li><span>Tokens com nome semântico, nunca cromático: <span class="code-chip">bg-primary</span>, não <span class="code-chip">white</span>.</span></li>
+          </ul>
+        </article>
+
+        <article class="gl-card reveal">
+          <span class="gl-card__number">03 / Estrutura</span>
+          <h3 class="gl-card__title">Organização de páginas no arquivo.</h3>
+          <p class="gl-card__body">
+            Todo arquivo do time segue a mesma anatomia. Isso torna a navegação previsível
+            mesmo para quem entra no projeto pela primeira vez.
+          </p>
+          <ul class="gl-card__list">
+            <li><span><strong>Cover</strong> — capa com contexto do projeto.</span></li>
+            <li><span><strong>💻 Protótipo</strong> — telas em alta fidelidade, prontas para handoff.</span></li>
+            <li><span><strong>🎨 Componentes</strong> — instâncias locais e exceções do DS.</span></li>
+            <li><span><strong>📦 Arquivo</strong> — versões antigas e explorações.</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Naming examples table -->
+      <div class="naming reveal">
+        <div class="naming__head">
+          <span>Boa nomenclatura</span>
+          <span>Evite</span>
+        </div>
+        <div class="naming__row">
+          <div class="naming__cell naming__cell--good">
+            <span class="naming__cell-tag naming__cell-tag--good">OK</span>
+            card/product/featured
+          </div>
+          <div class="naming__cell naming__cell--bad">
+            <span class="naming__cell-tag naming__cell-tag--bad">NÃO</span>
+            Group 142 copy
+          </div>
+        </div>
+        <div class="naming__row">
+          <div class="naming__cell naming__cell--good">
+            <span class="naming__cell-tag naming__cell-tag--good">OK</span>
+            btn/primary/disabled
+          </div>
+          <div class="naming__cell naming__cell--bad">
+            <span class="naming__cell-tag naming__cell-tag--bad">NÃO</span>
+            Botão Cinza
+          </div>
+        </div>
+        <div class="naming__row">
+          <div class="naming__cell naming__cell--good">
+            <span class="naming__cell-tag naming__cell-tag--good">OK</span>
+            input/text/error
+          </div>
+          <div class="naming__cell naming__cell--bad">
+            <span class="naming__cell-tag naming__cell-tag--bad">NÃO</span>
+            Rectangle 23
+          </div>
+        </div>
+        <div class="naming__row">
+          <div class="naming__cell naming__cell--good">
+            <span class="naming__cell-tag naming__cell-tag--good">OK</span>
+            token: bg-primary
+          </div>
+          <div class="naming__cell naming__cell--bad">
+            <span class="naming__cell-tag naming__cell-tag--bad">NÃO</span>
+            cor: #FFFFFF
+          </div>
+        </div>
+      </div>
+
+      <!-- File pages structure -->
+      <div class="file-pages reveal">
+        <div class="file-pages__intro">
+          <h4>Estrutura padrão de um arquivo.</h4>
+          <p>Toda nova file segue exatamente esta sequência de páginas — independente do produto, time ou tamanho do projeto.</p>
+        </div>
+        <ul class="file-pages__list">
+          <li>
+            <span class="file-pages__emoji">📌</span>
+            <span class="file-pages__name">Cover</span>
+            <span class="file-pages__purpose">contexto · status · owner</span>
+          </li>
+          <li>
+            <span class="file-pages__emoji">💻</span>
+            <span class="file-pages__name">Protótipo</span>
+            <span class="file-pages__purpose">telas finais</span>
+          </li>
+          <li>
+            <span class="file-pages__emoji">🎨</span>
+            <span class="file-pages__name">Componentes</span>
+            <span class="file-pages__purpose">instâncias locais</span>
+          </li>
+          <li>
+            <span class="file-pages__emoji">🧪</span>
+            <span class="file-pages__name">Explorações</span>
+            <span class="file-pages__purpose">drafts &amp; testes</span>
+          </li>
+          <li>
+            <span class="file-pages__emoji">📦</span>
+            <span class="file-pages__name">Arquivo</span>
+            <span class="file-pages__purpose">versões antigas</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Callout: don't do this -->
+      <div class="callout callout--error reveal">
+        <div class="callout__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+        </div>
+        <div class="callout__content">
+          <div class="callout__label">Não faça isso</div>
+          <h4 class="callout__title">Nada de cores soltas, frames sem nome ou componentes “destacados”.</h4>
+          <p class="callout__text">
+            Destacar (detach) um componente do Design System quebra a propagação de melhorias e
+            polui a biblioteca. Se precisa de algo diferente, abra uma proposta — não destaque.
+            O mesmo vale para usar HEX direto na propriedade em vez do token.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============== SECTION 04 — ORGANIZAÇÃO TELAS ============== -->
+  <section class="section" id="organizacao">
+    <div class="container">
+      <div class="section__head reveal">
+        <div class="section__number">
+          <span>SEÇÃO</span>
+          <span class="section__number-marker">04</span>
+          <span class="section__number-line"></span>
+        </div>
+        <div>
+          <h2 class="section__title">Como organizar <em>as telas</em>.</h2>
+          <p class="section__intro">
+            Padrão visual e espacial das nossas pranchetas. Aqui você vai encontrar como
+            agrupar fluxos, nomear seções e manter a leitura clara para o time inteiro.
+          </p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <article class="step reveal">
+          <div class="step__text">
+            <span class="step__index"></span>
+            <h3 class="step__title">Título do passo 01</h3>
+            <div class="step__placeholder-text">
+              // Bloco de texto editável — descreva como criar a primeira<br>
+              // estrutura de prancheta (grid, seções, espaçamento entre telas).
+            </div>
+          </div>
+          <div class="step__media">
+            <span class="step__media-corner">img/screens-01.png</span>
+            <div class="step__media-label">
+              <div class="step__media-label-icon">🖼</div>
+              Espaço reservado para imagem
+            </div>
+          </div>
+        </article>
+
+        <article class="step step--reverse reveal">
+          <div class="step__text">
+            <span class="step__index"></span>
+            <h3 class="step__title">Título do passo 02</h3>
+            <div class="step__placeholder-text">
+              // Bloco de texto editável — descreva como agrupar fluxos por contexto<br>
+              // e nomear seções de forma consistente.
+            </div>
+          </div>
+          <div class="step__media">
+            <span class="step__media-corner">img/screens-02.png</span>
+            <div class="step__media-label">
+              <div class="step__media-label-icon">🖼</div>
+              Espaço reservado para imagem
+            </div>
+          </div>
+        </article>
+
+        <article class="step reveal">
+          <div class="step__text">
+            <span class="step__index"></span>
+            <h3 class="step__title">Título do passo 03</h3>
+            <div class="step__placeholder-text">
+              // Bloco de texto editável — descreva como anotar telas, marcar status<br>
+              // (rascunho, review, aprovado) e identificar variações.
+            </div>
+          </div>
+          <div class="step__media">
+            <span class="step__media-corner">img/screens-03.png</span>
+            <div class="step__media-label">
+              <div class="step__media-label-icon">🖼</div>
+              Espaço reservado para imagem
+            </div>
+          </div>
+        </article>
+
+        <article class="step step--reverse reveal">
+          <div class="step__text">
+            <span class="step__index"></span>
+            <h3 class="step__title">Título do passo 04</h3>
+            <div class="step__placeholder-text">
+              // Bloco de texto editável — descreva como conectar fluxos<br>
+              // no protótipo e preparar o handoff para o time de engenharia.
+            </div>
+          </div>
+          <div class="step__media">
+            <span class="step__media-corner">img/screens-04.png</span>
+            <div class="step__media-label">
+              <div class="step__media-label-icon">🖼</div>
+              Espaço reservado para imagem
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="callout callout--warning reveal">
+        <div class="callout__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+        </div>
+        <div class="callout__content">
+          <div class="callout__label">Atenção</div>
+          <h4 class="callout__title">Telas “órfãs” não passam no review.</h4>
+          <p class="callout__text">
+            Toda tela precisa estar dentro de uma seção nomeada e conectada a pelo menos
+            um fluxo. Telas soltas no canvas são removidas no review semanal do DS.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============== FOOTER / FAQ ============== -->
+  <footer class="footer" id="faq">
+    <div class="container">
+      <div class="footer__head reveal">
+        <span class="footer__eyebrow">05 · FAQ rápido</span>
+        <h2 class="footer__title">Dúvidas? <em>A gente responde.</em></h2>
+      </div>
+
+      <div class="footer__grid">
+
+        <!-- FAQ -->
+        <div class="faq reveal">
+          <details class="faq__item" open>
+            <summary class="faq__btn">
+              Posso desanexar (detach) um componente do Design System?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              Não. Detach quebra a propagação de updates e polui o arquivo. Se você precisa de algo
+              que não existe, abra uma proposta no canal do DS — quase sempre é melhor evoluir o
+              componente do que criar uma cópia local.
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__btn">
+              Encontrei um bug ou inconsistência no Design System. E agora?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              Reporte direto no canal <span class="code-chip">#design-system</span> com print, link do arquivo
+              e descrição do comportamento esperado. Triagem é semanal, mas issues críticas
+              entram em pauta no mesmo dia.
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__btn">
+              Posso usar fontes externas em um projeto pontual?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              Apenas em peças de marketing aprovadas. Em produto, sempre as fontes do DS —
+              elas estão otimizadas para legibilidade e performance.
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__btn">
+              Como sugiro uma evolução para o Design System?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              Use o template <span class="code-chip">DS Request</span> no Figma e marque o time no canal.
+              Toda proposta passa por revisão técnica e visual antes de virar release.
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__btn">
+              Existe versionamento do Design System?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              Sim. Seguimos <strong>semver</strong> (major.minor.patch) e publicamos changelog
+              quinzenal. Mudanças <em>breaking</em> são comunicadas com 14 dias de antecedência.
+            </div>
+          </details>
+        </div>
+
+        <!-- Contact card -->
+        <aside class="contact-card reveal">
+          <span class="contact-card__label">Time de Design System · online</span>
+          <h3 class="contact-card__title">Fale com a gente quando precisar.</h3>
+          <p class="contact-card__desc">
+            Estamos aqui para destravar dúvidas, revisar contribuições e manter o sistema vivo.
+            Não trave — chama.
+          </p>
+          <ul class="contact-card__list">
+            <li>
+              <span class="contact-card__list-icon">#</span>
+              <span class="contact-card__list-text">
+                <strong>Slack</strong>
+                <span>#design-system</span>
+              </span>
+            </li>
+            <li>
+              <span class="contact-card__list-icon">@</span>
+              <span class="contact-card__list-text">
+                <strong>E-mail</strong>
+                <span>designsystem@empresa.com</span>
+              </span>
+            </li>
+            <li>
+              <span class="contact-card__list-icon">🗓</span>
+              <span class="contact-card__list-text">
+                <strong>Office hours</strong>
+                <span>quintas, 14h–15h · agenda Notion</span>
+              </span>
+            </li>
+            <li>
+              <span class="contact-card__list-icon">📓</span>
+              <span class="contact-card__list-text">
+                <strong>Documentação completa</strong>
+                <span>ds.empresa.com</span>
+              </span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="bottom-strip">
+        <div>DESIGN PLAYBOOK · © 2026</div>
+        <div class="bottom-strip__version">
+          <span>v 1.0.0</span>
+          <span>última atualização: mai/2026</span>
+          <span>mantido por design system team</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== Theme toggle =====
+    const toggle = document.getElementById('themeToggle');
+    const label  = document.getElementById('themeLabel');
+    const root   = document.documentElement;
+
+    function setTheme(t){
+      root.setAttribute('data-theme', t);
+      label.textContent = t.toUpperCase();
+    }
+    toggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+    });
+
+    // ===== Scroll reveal =====
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
