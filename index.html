@@ -1257,7 +1257,6 @@
         </a>
         <div class="nav__links">
           <a href="#setup">Setup Figma</a>
-          <a href="#diretrizes">Diretrizes</a>
           <a href="#organizacao">Telas</a>
           <a href="#faq">FAQ</a>
         </div>
@@ -1306,10 +1305,10 @@
             <span class="hero__meta-label">Mantido por</span>
             <span class="hero__meta-value">Time de Design System</span>
           </div>
-          <div class="hero__meta-item">
+        <!--  <div class="hero__meta-item">
             <span class="hero__meta-label">Status</span>
             <span class="hero__meta-value" style="color:var(--success-text)">● Em produção</span>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -1339,11 +1338,17 @@
         <article class="step reveal">
           <div class="step__text">
             <span class="step__index"></span>
-            <h3 class="step__title">Título do passo 01</h3>
+            <h3 class="step__title">Bibliotecas</h3>
             <div class="step__placeholder-text">
-              // Bloco de texto editável — descreva aqui o que o designer<br>
-              // precisa fazer no primeiro passo de configuração.<br>
-              // Ex.: criar conta, entrar no time, ativar plugins, etc.
+              <p>
+                Vá até a aba “Assets” e verifique se as bibliotecas estão ativas. Caso não estejam, ative sempre as bibliotecas Frequency <em style="font-style:italic;color:var(--main-text)">Foundation</em> e Frequency <em style="font-style:italic;color:var(--main-text)">Assets</em>.
+              </p>
+              <br/> 
+              <p>
+                Além disso, ative também a biblioteca correspondente ao tipo de projeto em que estiver trabalhando: <br/>
+                <em style="font-style:italic;color:var(--main-text)">* Web Components</em> para projetos web; <br/>
+                <em style="font-style:italic;color:var(--main-text)">* Native Components</em> para projetos nativos, como TV, Roku ou Mobile.
+              </p>
             </div>
           </div>
           <div class="step__media">
@@ -1359,10 +1364,16 @@
         <article class="step step--reverse reveal">
           <div class="step__text">
             <span class="step__index"></span>
-            <h3 class="step__title">Título do passo 02</h3>
+            <h3 class="step__title">Organizando as páginas</h3>
             <div class="step__placeholder-text">
-              // Bloco de texto editável — descreva aqui o segundo passo.<br>
-              // Ex.: conectar bibliotecas, ativar Variables, configurar atalhos.
+              <p>
+                Antes de começar a desenhar as telas, é necessário configurar e organizar as páginas do arquivo. A primeira página deve ser sempre a capa do projeto. Caso o arquivo ainda não possua uma capa, acesse a aba <em style="font-style:italic;color:var(--main-text)">Assets</em>, adicione o componente <em style="font-style:italic;color:var(--main-text)">Cover</em> e preencha as informações utilizando o padrão: <em style="font-style:italic;color:var(--main-text)">[Nome do projeto] + [Nome da feature]</em>.
+              </p>
+              <br/>
+              <p>
+                Após isso, crie as páginas que serão utilizadas no fluxo de trabalho. Em cada página com fluxos e telas, aplique os temas corretos do projeto. 
+                Por exemplo, ao trabalhar em uma tela da SKY no modo dark: selecione primeiro o tema <em style="font-style:italic;color:var(--main-text)">Company-Type = Sky-Products</em>; em seguida, aplique o tema <em style="font-style:italic;color:var(--main-text)">Sky-Products = SKY Dark</em>.
+              </p>
             </div>
           </div>
           <div class="step__media">
@@ -1378,10 +1389,14 @@
         <article class="step reveal">
           <div class="step__text">
             <span class="step__index"></span>
-            <h3 class="step__title">Título do passo 03</h3>
+            <h3 class="step__title">Organizando a section</h3>
             <div class="step__placeholder-text">
-              // Bloco de texto editável — descreva aqui o terceiro passo.<br>
-              // Ex.: instalar plugins essenciais, configurar fontes locais.
+              <p>É fundamental que as telas dos fluxos estejam sempre agrupadas dentro de uma <em style="font-style:italic;color:var(--main-text)">section</em>. Cada section deve receber um nome condizente com o fluxo que engloba. Além disso, para garantir uma melhor oganização visual, devem ser utilizados os componentes de <em style="font-style:italic;color:var(--main-text)">Templates</em> da biblioteca de <em style="font-style:italic;color:var(--main-text)">Assets</em>.
+              </p>
+              <br/>
+              <p>
+               Inclua no <em style="font-style:italic;color:var(--main-text)">Files-Header</em> da section o nome do fluxo e um overview sobre o que se trata e algumas tags indicando a data do último update, se o arquivo foi revisado e se os simbolos foram aplicados.
+              </p> 
             </div>
           </div>
           <div class="step__media">
@@ -1397,10 +1412,11 @@
         <article class="step step--reverse reveal">
           <div class="step__text">
             <span class="step__index"></span>
-            <h3 class="step__title">Título do passo 04</h3>
+            <h3 class="step__title">Organizando as telas</h3>
             <div class="step__placeholder-text">
-              // Bloco de texto editável — descreva aqui o quarto passo.<br>
-              // Ex.: validar setup com checklist final.
+              <p>
+                As telas devem ser organizadas em um bloco com o asset <em style="font-style:italic;color:var(--main-text)">Files-Header</em> na sua variação de Page + <em style="font-style:italic;color:var(--main-text)">Note-Rules</em> + <em style="font-style:italic;color:var(--main-text)">Telas Web e Mobile</em>. O elemento de titulo da página deve ficar acima das telas do bloco delimitando a organização. A esquerda devem ficar as notas, podendo ser notas sobre a tela, sobre regras específicas da tela e notas indicando os componentes utilizados na tela. A direita das notas devemos ter uma tela web e ao lado a mesma tela na variação mobile. Para conectar uma tela a outra dentro da section devemos utilizar o elemento <em style="font-style:italic;color:var(--main-text)">Notes-Action</em>.
+              </p>
             </div>
           </div>
           <div class="step__media">
@@ -1429,182 +1445,13 @@
     </div>
   </section>
 
-  <!-- ============== SECTION 03 — DIRETRIZES ============== -->
-  <section class="section" id="diretrizes">
-    <div class="container">
-      <div class="section__head reveal">
-        <div class="section__number">
-          <span>SEÇÃO</span>
-          <span class="section__number-marker">03</span>
-          <span class="section__number-line"></span>
-        </div>
-        <div>
-          <h2 class="section__title">Diretrizes &amp; padrões <em>visuais</em>.</h2>
-          <p class="section__intro">
-            As regras do jogo antes de colocar a mão na massa. Esta seção define como consumir
-            o Design System, nomear camadas e organizar arquivos — três pilares que mantêm
-            nossos projetos legíveis para o time todo.
-          </p>
-        </div>
-      </div>
-
-      <!-- 3 cards -->
-      <div class="guidelines">
-        <article class="gl-card reveal">
-          <span class="gl-card__number">01 / Design System</span>
-          <h3 class="gl-card__title">Como consumir nossas bibliotecas globais.</h3>
-          <p class="gl-card__body">
-            Toda interface começa pelo Design System. Ele é a fonte única da verdade —
-            cores, espaçamentos, tipografia e componentes vivem lá.
-          </p>
-          <ul class="gl-card__list">
-            <li><span><strong>Ative</strong> a biblioteca <span class="code-chip">Vrio/Foundations</span>, <span class="code-chip">Vrio/ Assets</span> e <span class="code-chip">Vrio/ Web Components</span> em todo arquivo novo.</span></li>
-            <li><span><strong>Nunca</strong> faça override de componentes — proponha uma evolução no DS.</span></li>
-            <li><span>Use sempre <strong>tokens</strong>: cor, espaçamento e tipografia por variável, nunca hard-coded.</span></li>
-            <li><span>Encontrou um gap? Entre em <strong>contato</strong> com o time de DS.</span></li>
-          </ul>
-        </article>
-
-        <article class="gl-card reveal">
-          <span class="gl-card__number">02 / Nomenclatura</span>
-          <h3 class="gl-card__title">Camadas e componentes legíveis.</h3>
-          <p class="gl-card__body">
-            Uma camada bem nomeada é um presente para o próximo designer (e para o dev).
-            Seja descritivo, evite genéricos como <span class="code-chip">Rectangle 23</span>.
-          </p>
-          <ul class="gl-card__list">
-            <li><span>Padrão: <strong>função/elemento/estado</strong> — ex.: <span class="code-chip">btn/primary/hover</span>.</span></li>
-            <li><span>Use <strong>kebab-case</strong> e remova números automáticos do Figma.</span></li>
-            <li><span>Variants seguem <strong>props</strong> documentadas (size, state, variant).</span></li>
-            <li><span>Tokens com nome semântico, nunca cromático: <span class="code-chip">bg-primary</span>, não <span class="code-chip">white</span>.</span></li>
-          </ul>
-        </article>
-
-        <article class="gl-card reveal">
-          <span class="gl-card__number">03 / Estrutura</span>
-          <h3 class="gl-card__title">Organização de páginas no arquivo.</h3>
-          <p class="gl-card__body">
-            Todo arquivo do time segue a mesma anatomia. Isso torna a navegação previsível
-            mesmo para quem entra no projeto pela primeira vez.
-          </p>
-          <ul class="gl-card__list">
-            <li><span><strong>Cover</strong> — capa com contexto do projeto.</span></li>
-            <li><span><strong>💻 Protótipo</strong> — telas em alta fidelidade, prontas para handoff.</span></li>
-            <li><span><strong>🎨 Componentes</strong> — instâncias locais e exceções do DS.</span></li>
-            <li><span><strong>📦 Arquivo</strong> — versões antigas e explorações.</span></li>
-          </ul>
-        </article>
-      </div>
-
-      <!-- Naming examples table -->
-      <div class="naming reveal">
-        <div class="naming__head">
-          <span>Boa nomenclatura</span>
-          <span>Evite</span>
-        </div>
-        <div class="naming__row">
-          <div class="naming__cell naming__cell--good">
-            <span class="naming__cell-tag naming__cell-tag--good">OK</span>
-            card/product/featured
-          </div>
-          <div class="naming__cell naming__cell--bad">
-            <span class="naming__cell-tag naming__cell-tag--bad">NÃO</span>
-            Group 142 copy
-          </div>
-        </div>
-        <div class="naming__row">
-          <div class="naming__cell naming__cell--good">
-            <span class="naming__cell-tag naming__cell-tag--good">OK</span>
-            btn/primary/disabled
-          </div>
-          <div class="naming__cell naming__cell--bad">
-            <span class="naming__cell-tag naming__cell-tag--bad">NÃO</span>
-            Botão Cinza
-          </div>
-        </div>
-        <div class="naming__row">
-          <div class="naming__cell naming__cell--good">
-            <span class="naming__cell-tag naming__cell-tag--good">OK</span>
-            input/text/error
-          </div>
-          <div class="naming__cell naming__cell--bad">
-            <span class="naming__cell-tag naming__cell-tag--bad">NÃO</span>
-            Rectangle 23
-          </div>
-        </div>
-        <div class="naming__row">
-          <div class="naming__cell naming__cell--good">
-            <span class="naming__cell-tag naming__cell-tag--good">OK</span>
-            token: bg-primary
-          </div>
-          <div class="naming__cell naming__cell--bad">
-            <span class="naming__cell-tag naming__cell-tag--bad">NÃO</span>
-            cor: #FFFFFF
-          </div>
-        </div>
-      </div>
-
-      <!-- File pages structure -->
-      <div class="file-pages reveal">
-        <div class="file-pages__intro">
-          <h4>Estrutura padrão de um arquivo.</h4>
-          <p>Toda nova file segue exatamente esta sequência de páginas — independente do produto, time ou tamanho do projeto.</p>
-        </div>
-        <ul class="file-pages__list">
-          <li>
-            <span class="file-pages__emoji">📌</span>
-            <span class="file-pages__name">Cover</span>
-            <span class="file-pages__purpose">contexto · status · owner</span>
-          </li>
-          <li>
-            <span class="file-pages__emoji">💻</span>
-            <span class="file-pages__name">Protótipo</span>
-            <span class="file-pages__purpose">telas finais</span>
-          </li>
-          <li>
-            <span class="file-pages__emoji">🎨</span>
-            <span class="file-pages__name">Componentes</span>
-            <span class="file-pages__purpose">instâncias locais</span>
-          </li>
-          <li>
-            <span class="file-pages__emoji">🧪</span>
-            <span class="file-pages__name">Explorações</span>
-            <span class="file-pages__purpose">drafts &amp; testes</span>
-          </li>
-          <li>
-            <span class="file-pages__emoji">📦</span>
-            <span class="file-pages__name">Arquivo</span>
-            <span class="file-pages__purpose">versões antigas</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Callout: don't do this -->
-      <div class="callout callout--error reveal">
-        <div class="callout__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
-        </div>
-        <div class="callout__content">
-          <div class="callout__label">Não faça isso</div>
-          <h4 class="callout__title">Nada de cores soltas, frames sem nome ou componentes “destacados”.</h4>
-          <p class="callout__text">
-            Destacar (detach) um componente do Design System quebra a propagação de melhorias e
-            polui a biblioteca. Se precisa de algo diferente, abra uma proposta — não destaque.
-            O mesmo vale para usar HEX direto na propriedade em vez do token.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
   <!-- ============== SECTION 04 — ORGANIZAÇÃO TELAS ============== -->
   <section class="section" id="organizacao">
     <div class="container">
       <div class="section__head reveal">
         <div class="section__number">
           <span>SEÇÃO</span>
-          <span class="section__number-marker">04</span>
+          <span class="section__number-marker">03</span>
           <span class="section__number-line"></span>
         </div>
         <div>
@@ -1620,10 +1467,12 @@
         <article class="step reveal">
           <div class="step__text">
             <span class="step__index"></span>
-            <h3 class="step__title">Título do passo 01</h3>
+            <h3 class="step__title">Montando as telas</h3>
             <div class="step__placeholder-text">
-              // Bloco de texto editável — descreva como criar a primeira<br>
-              // estrutura de prancheta (grid, seções, espaçamento entre telas).
+              <p>
+                // Bloco de texto editável — descreva como anotar telas, marcar status<br>
+                // (rascunho, review, aprovado) e identificar variações.
+              </p>
             </div>
           </div>
           <div class="step__media">
@@ -1638,10 +1487,11 @@
         <article class="step step--reverse reveal">
           <div class="step__text">
             <span class="step__index"></span>
-            <h3 class="step__title">Título do passo 02</h3>
+            <h3 class="step__title">Espaçamento</h3>
             <div class="step__placeholder-text">
-              // Bloco de texto editável — descreva como agrupar fluxos por contexto<br>
-              // e nomear seções de forma consistente.
+              <p>
+                Ao montar as telas, é importante seguir os espaçamentos padrão para garantir consistência visual e estrutural. Quando o primeiro elemento da página for um Hero ou um Menu/Header, ele deve permanecer alinhado ao topo da tela. O elemento seguinte deve respeitar um espaçamento de <em style="font-style:italic;color:var(--main-text)">40px</em> em web e <em style="font-style:italic;color:var(--main-text)">32px</em> em mobile. Para os demais conteúdos da página, o espaçamento entre seções deve ser de <em style="font-style:italic;color:var(--main-text)">80px</em> em web e <em style="font-style:italic;color:var(--main-text)">64px</em> em mobile. Já os blocos dentro de uma mesma seção devem manter um espaçamento de <em style="font-style:italic;color:var(--main-text)">48px</em> entre si. Por fim, os elementos internos de um mesmo bloco podem utilizar espaçamentos de <em style="font-style:italic;color:var(--main-text)">16px</em> ou <em style="font-style:italic;color:var(--main-text)">24px</em>, de acordo com a necessidade de organização e hierarquia das informações.
+              </p>
             </div>
           </div>
           <div class="step__media">
@@ -1656,7 +1506,7 @@
         <article class="step reveal">
           <div class="step__text">
             <span class="step__index"></span>
-            <h3 class="step__title">Título do passo 03</h3>
+            <h3 class="step__title">Camadas</h3>
             <div class="step__placeholder-text">
               // Bloco de texto editável — descreva como anotar telas, marcar status<br>
               // (rascunho, review, aprovado) e identificar variações.
@@ -1674,7 +1524,7 @@
         <article class="step step--reverse reveal">
           <div class="step__text">
             <span class="step__index"></span>
-            <h3 class="step__title">Título do passo 04</h3>
+            <h3 class="step__title">Componentes</h3>
             <div class="step__placeholder-text">
               // Bloco de texto editável — descreva como conectar fluxos<br>
               // no protótipo e preparar o handoff para o time de engenharia.
@@ -1690,19 +1540,21 @@
         </article>
       </div>
 
-      <div class="callout callout--warning reveal">
+      <!-- Callout: don't do this -->
+      <div class="callout callout--error reveal">
         <div class="callout__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
         </div>
         <div class="callout__content">
-          <div class="callout__label">Atenção</div>
-          <h4 class="callout__title">Telas “órfãs” não passam no review.</h4>
+          <div class="callout__label">Não faça isso</div>
+          <h4 class="callout__title">Nada de telas soltas, frames sem nome, cores e fontes aplicadas na mão ou "detach" em componentes.</h4>
           <p class="callout__text">
-            Toda tela precisa estar dentro de uma seção nomeada e conectada a pelo menos
-            um fluxo. Telas soltas no canvas são removidas no review semanal do DS.
+            Esses comportamentos quebram a propagação de melhorias e
+            poluem a biblioteca. Siga as diretrizes e se precisa de algo diferente, abra uma proposta — não dê Detach.
+            O mesmo vale para usar HEX direto na propriedade em vez do token. 
+            um fluxo.
           </p>
         </div>
-      </div>
 
     </div>
   </section>
@@ -1711,7 +1563,7 @@
   <footer class="footer" id="faq">
     <div class="container">
       <div class="footer__head reveal">
-        <span class="footer__eyebrow">05 · FAQ rápido</span>
+        <span class="footer__eyebrow">04 · FAQ rápido</span>
         <h2 class="footer__title">Dúvidas? <em>A gente responde.</em></h2>
       </div>
 
@@ -1721,13 +1573,11 @@
         <div class="faq reveal">
           <details class="faq__item" open>
             <summary class="faq__btn">
-              Posso desanexar (detach) um componente do Design System?
+              Posso dar detach em um componente do Design System?
               <span class="faq__icon" aria-hidden="true"></span>
             </summary>
             <div class="faq__answer">
-              Não. Detach quebra a propagação de updates e polui o arquivo. Se você precisa de algo
-              que não existe, abra uma proposta no canal do DS — quase sempre é melhor evoluir o
-              componente do que criar uma cópia local.
+              O Detach só deve ser utilizado quando você for montar uma proposta de mudança em um componente existe. Nesse caso sim, você pode dar detach para criar a nova proposta para o componente. 
             </div>
           </details>
 
