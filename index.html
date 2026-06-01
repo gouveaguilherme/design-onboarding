@@ -1275,7 +1275,7 @@
     <div class="hero__deco" aria-hidden="true"></div>
     <div class="container">
       <div class="hero__inner">
-        <span class="hero__eyebrow reveal">Documentação interna · Atualizado em mai/2026</span>
+        <span class="hero__eyebrow reveal">Documentação interna · Atualizado em jun/2026</span>
 
         <h1 class="hero__title reveal">
           Design Playbook
@@ -1535,8 +1535,12 @@
             <span class="step__index"></span>
             <h3 class="step__title">Componentes</h3>
             <div class="step__placeholder-text">
-              // Bloco de texto editável — descreva como conectar fluxos<br>
-              // no protótipo e preparar o handoff para o time de engenharia.
+              <p>
+                Utilize exclusivamente os componentes da biblioteca aplicada ao arquivo. Não utilize componentes de bibliotecas de terceiros. Sempre que possível, priorize o uso dos componentes já existentes no Design System. Caso nenhuma solução disponível atenda à necessidade do projeto, elabore uma proposta de novo componente e valide-a com o time de Design System.
+              </p><br/>
+              <p>
+                Caso seja necessário alterar um componente além das configurações previstas em suas propriedades, não aplique modificações manuais diretamente na instância. Faça o detach do componente antes de realizar qualquer ajuste. Sempre que uma necessidade exigir mudanças na estrutura, comportamento ou aparência de um componente existente, documente a proposta e compartilhe-a com o time de Design System para avaliação e possível evolução do componente oficial.
+              </p>
             </div>
           </div>
           <div class="step__media">
@@ -1603,23 +1607,11 @@
 
           <details class="faq__item">
             <summary class="faq__btn">
-              Posso usar fontes externas em um projeto pontual?
-              <span class="faq__icon" aria-hidden="true"></span>
-            </summary>
-            <div class="faq__answer">
-              Apenas em peças de marketing aprovadas. Em produto, sempre as fontes do DS —
-              elas estão otimizadas para legibilidade e performance.
-            </div>
-          </details>
-
-          <details class="faq__item">
-            <summary class="faq__btn">
               Como sugiro uma evolução para o Design System?
               <span class="faq__icon" aria-hidden="true"></span>
             </summary>
             <div class="faq__answer">
-              Use o template <span class="code-chip">DS Request</span> no Figma e marque o time no canal.
-              Toda proposta passa por revisão técnica e visual antes de virar release.
+              Entre em contato pelo canal <span class="code-chip">Figma & Design Library</span> no Teams ou diretamente com algum membro do time. Toda proposta passa por revisão técnica e visual.
             </div>
           </details>
         </div>
