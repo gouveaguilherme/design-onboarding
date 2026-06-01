@@ -603,8 +603,7 @@
     border: 1px solid var(--border-secondary);
     border-radius: 16px;
     overflow: hidden;
-    display: grid;
-    place-items: center;
+    display: block;
     color: var(--text-disable);
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8rem;
@@ -655,6 +654,91 @@
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     border: 1px solid var(--border-secondary);
+  }
+
+  /* ============================================
+     CAROUSEL
+     ============================================ */
+  .carousel__track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .carousel__slide {
+    min-width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .carousel__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--bg-primary) 70%, transparent);
+    border: 1px solid var(--border-primary);
+    display: grid;
+    place-items: center;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .carousel__btn:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--main-brand);
+    color: var(--text-primary);
+  }
+
+  .carousel__btn--prev { left: 0.75rem; }
+  .carousel__btn--next { right: 0.75rem; }
+
+  .carousel__btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+
+  .carousel__dots {
+    position: absolute;
+    bottom: 0.875rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 3;
+  }
+
+  .carousel__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text-disable);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .carousel__dot--active {
+    background: var(--main-brand);
+    width: 18px;
+    border-radius: 3px;
+    box-shadow: 0 0 8px var(--main-brand);
   }
 
   /* ============================================
@@ -1352,10 +1436,39 @@
             </div>
           </div>
           <div class="step__media">
-            <span class="step__media-corner">img/setup-01.png</span>
-            <div class="step__media-label">
-              <div class="step__media-label-icon">🖼</div>
-              Espaço reservado para imagem
+            <div class="carousel__track">
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/setup-01a.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/setup-01b.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/setup-01c.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+            </div>
+            <button class="carousel__btn carousel__btn--prev" aria-label="Anterior">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="carousel__btn carousel__btn--next" aria-label="Próximo">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <div class="carousel__dots">
+              <button class="carousel__dot carousel__dot--active" aria-label="Slide 1"></button>
+              <button class="carousel__dot" aria-label="Slide 2"></button>
+              <button class="carousel__dot" aria-label="Slide 3"></button>
             </div>
           </div>
         </article>
@@ -1377,10 +1490,39 @@
             </div>
           </div>
           <div class="step__media">
-            <span class="step__media-corner">img/setup-02.png</span>
-            <div class="step__media-label">
-              <div class="step__media-label-icon">🖼</div>
-              Espaço reservado para imagem
+            <div class="carousel__track">
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/setup-02a.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/setup-02b.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/setup-02c.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+            </div>
+            <button class="carousel__btn carousel__btn--prev" aria-label="Anterior">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="carousel__btn carousel__btn--next" aria-label="Próximo">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <div class="carousel__dots">
+              <button class="carousel__dot carousel__dot--active" aria-label="Slide 1"></button>
+              <button class="carousel__dot" aria-label="Slide 2"></button>
+              <button class="carousel__dot" aria-label="Slide 3"></button>
             </div>
           </div>
         </article>
@@ -1400,10 +1542,39 @@
             </div>
           </div>
           <div class="step__media">
-            <span class="step__media-corner">img/setup-03.png</span>
-            <div class="step__media-label">
-              <div class="step__media-label-icon">🖼</div>
-              Espaço reservado para imagem
+            <div class="carousel__track">
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/setup-03a.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/setup-03b.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/setup-03c.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+            </div>
+            <button class="carousel__btn carousel__btn--prev" aria-label="Anterior">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="carousel__btn carousel__btn--next" aria-label="Próximo">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <div class="carousel__dots">
+              <button class="carousel__dot carousel__dot--active" aria-label="Slide 1"></button>
+              <button class="carousel__dot" aria-label="Slide 2"></button>
+              <button class="carousel__dot" aria-label="Slide 3"></button>
             </div>
           </div>
         </article>
@@ -1420,10 +1591,39 @@
             </div>
           </div>
           <div class="step__media">
-            <span class="step__media-corner">img/setup-04.png</span>
-            <div class="step__media-label">
-              <div class="step__media-label-icon">🖼</div>
-              Espaço reservado para imagem
+            <div class="carousel__track">
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/setup-04a.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/setup-04b.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/setup-04c.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+            </div>
+            <button class="carousel__btn carousel__btn--prev" aria-label="Anterior">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="carousel__btn carousel__btn--next" aria-label="Próximo">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <div class="carousel__dots">
+              <button class="carousel__dot carousel__dot--active" aria-label="Slide 1"></button>
+              <button class="carousel__dot" aria-label="Slide 2"></button>
+              <button class="carousel__dot" aria-label="Slide 3"></button>
             </div>
           </div>
         </article>
@@ -1481,10 +1681,39 @@
             </div>
           </div>
           <div class="step__media">
-            <span class="step__media-corner">img/screens-01.png</span>
-            <div class="step__media-label">
-              <div class="step__media-label-icon">🖼</div>
-              Espaço reservado para imagem
+            <div class="carousel__track">
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/screens-01a.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/screens-01b.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/screens-01c.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+            </div>
+            <button class="carousel__btn carousel__btn--prev" aria-label="Anterior">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="carousel__btn carousel__btn--next" aria-label="Próximo">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <div class="carousel__dots">
+              <button class="carousel__dot carousel__dot--active" aria-label="Slide 1"></button>
+              <button class="carousel__dot" aria-label="Slide 2"></button>
+              <button class="carousel__dot" aria-label="Slide 3"></button>
             </div>
           </div>
         </article>
@@ -1500,10 +1729,39 @@
             </div>
           </div>
           <div class="step__media">
-            <span class="step__media-corner">img/screens-02.png</span>
-            <div class="step__media-label">
-              <div class="step__media-label-icon">🖼</div>
-              Espaço reservado para imagem
+            <div class="carousel__track">
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/screens-02a.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/screens-02b.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/screens-02c.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+            </div>
+            <button class="carousel__btn carousel__btn--prev" aria-label="Anterior">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="carousel__btn carousel__btn--next" aria-label="Próximo">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <div class="carousel__dots">
+              <button class="carousel__dot carousel__dot--active" aria-label="Slide 1"></button>
+              <button class="carousel__dot" aria-label="Slide 2"></button>
+              <button class="carousel__dot" aria-label="Slide 3"></button>
             </div>
           </div>
         </article>
@@ -1522,10 +1780,39 @@
             </div>
           </div>
           <div class="step__media">
-            <span class="step__media-corner">img/screens-03.png</span>
-            <div class="step__media-label">
-              <div class="step__media-label-icon">🖼</div>
-              Espaço reservado para imagem
+            <div class="carousel__track">
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/screens-03a.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/screens-03b.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/screens-03c.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+            </div>
+            <button class="carousel__btn carousel__btn--prev" aria-label="Anterior">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="carousel__btn carousel__btn--next" aria-label="Próximo">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <div class="carousel__dots">
+              <button class="carousel__dot carousel__dot--active" aria-label="Slide 1"></button>
+              <button class="carousel__dot" aria-label="Slide 2"></button>
+              <button class="carousel__dot" aria-label="Slide 3"></button>
             </div>
           </div>
         </article>
@@ -1544,10 +1831,39 @@
             </div>
           </div>
           <div class="step__media">
-            <span class="step__media-corner">img/screens-04.png</span>
-            <div class="step__media-label">
-              <div class="step__media-label-icon">🖼</div>
-              Espaço reservado para imagem
+            <div class="carousel__track">
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/screens-04a.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/screens-04b.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+              <div class="carousel__slide">
+                <span class="step__media-corner">img/screens-04c.png</span>
+                <div class="step__media-label">
+                  <div class="step__media-label-icon">🖼</div>
+                  Espaço reservado para imagem
+                </div>
+              </div>
+            </div>
+            <button class="carousel__btn carousel__btn--prev" aria-label="Anterior">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="carousel__btn carousel__btn--next" aria-label="Próximo">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <div class="carousel__dots">
+              <button class="carousel__dot carousel__dot--active" aria-label="Slide 1"></button>
+              <button class="carousel__dot" aria-label="Slide 2"></button>
+              <button class="carousel__dot" aria-label="Slide 3"></button>
             </div>
           </div>
         </article>
@@ -1673,6 +1989,26 @@
     toggle.addEventListener('click', () => {
       const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       setTheme(next);
+    });
+
+    // ===== Carousels =====
+    document.querySelectorAll('.step__media').forEach(container => {
+      const track = container.querySelector('.carousel__track');
+      const slides = container.querySelectorAll('.carousel__slide');
+      const dots = container.querySelectorAll('.carousel__dot');
+      const prevBtn = container.querySelector('.carousel__btn--prev');
+      const nextBtn = container.querySelector('.carousel__btn--next');
+      let current = 0;
+
+      function goTo(index) {
+        current = (index + slides.length) % slides.length;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('carousel__dot--active', i === current));
+      }
+
+      prevBtn.addEventListener('click', () => goTo(current - 1));
+      nextBtn.addEventListener('click', () => goTo(current + 1));
+      dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
     });
 
     // ===== Scroll reveal =====
