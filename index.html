@@ -1435,9 +1435,9 @@
         </div>
         <div class="callout__content">
           <div class="callout__label">Boa prática</div>
-          <h4 class="callout__title">Conferiu tudo? Faça o handshake com seu lead.</h4>
+          <h4 class="callout__title">Conferiu tudo? Faça o handshake com o DS.</h4>
           <p class="callout__text">
-            Antes de pegar a primeira tarefa, peça uma revisão rápida do setup com o lead de design.
+            Antes de continuar com sua tarefa, peça uma revisão rápida do time de design system.
             Esse alinhamento de 5 minutos economiza horas de retrabalho depois.
           </p>
         </div>
@@ -1470,8 +1470,13 @@
             <h3 class="step__title">Montando as telas</h3>
             <div class="step__placeholder-text">
               <p>
-                // Bloco de texto editável — descreva como anotar telas, marcar status<br>
-                // (rascunho, review, aprovado) e identificar variações.
+                Ao montar as telas, siga os <em style="font-style:italic;color:var(--main-text)">padrões</em> de <em style="font-style:italic;color:var(--main-text)">espaçamento</em> e <em style="font-style:italic;color:var(--main-text)">nomenclatura de camadas</em> definidos pelo Design System para garantir consistência visual, organização e facilidade de manutenção.
+              </p><br/>
+              <p>
+                Comece criando um frame com as dimensões do dispositivo para o qual a interface será desenvolvida. Em seguida, utilize os componentes disponíveis na aba Assets da <em style="font-style:italic;color:var(--main-text)">biblioteca oficial</em> e monte a tela a partir desses elementos.
+              </p><br/>
+              <p>
+                Caso nenhum componente existente atenda à necessidade do projeto, o Design System permite a <em style="font-style:italic;color:var(--main-text)">criação de novas soluções</em>. Nesse cenário, desenvolva o novo elemento seguindo os padrões estabelecidos, organize a proposta de forma clara e compartilhe-a com o time de Design System para avaliação e possível incorporação à biblioteca.
               </p>
             </div>
           </div>
@@ -1490,7 +1495,7 @@
             <h3 class="step__title">Espaçamento</h3>
             <div class="step__placeholder-text">
               <p>
-                Ao montar as telas, é importante seguir os espaçamentos padrão para garantir consistência visual e estrutural. Quando o primeiro elemento da página for um Hero ou um Menu/Header, ele deve permanecer alinhado ao topo da tela. O elemento seguinte deve respeitar um espaçamento de <em style="font-style:italic;color:var(--main-text)">40px</em> em web e <em style="font-style:italic;color:var(--main-text)">32px</em> em mobile. Para os demais conteúdos da página, o espaçamento entre seções deve ser de <em style="font-style:italic;color:var(--main-text)">80px</em> em web e <em style="font-style:italic;color:var(--main-text)">64px</em> em mobile. Já os blocos dentro de uma mesma seção devem manter um espaçamento de <em style="font-style:italic;color:var(--main-text)">48px</em> entre si. Por fim, os elementos internos de um mesmo bloco podem utilizar espaçamentos de <em style="font-style:italic;color:var(--main-text)">16px</em> ou <em style="font-style:italic;color:var(--main-text)">24px</em>, de acordo com a necessidade de organização e hierarquia das informações.
+                Para manter o espaçamento padrão em todas as telas, siga as seguintes diretrizes. Quando o primeiro elemento da página for um Hero ou um Menu/Header, ele deve permanecer alinhado ao topo da tela. O elemento seguinte deve respeitar um espaçamento de <em style="font-style:italic;color:var(--main-text)">40px</em> em web e <em style="font-style:italic;color:var(--main-text)">32px</em> em mobile. Para os demais conteúdos da página, o espaçamento entre seções deve ser de <em style="font-style:italic;color:var(--main-text)">80px</em> em web e <em style="font-style:italic;color:var(--main-text)">64px</em> em mobile. Já os blocos dentro de uma mesma seção devem manter um espaçamento de <em style="font-style:italic;color:var(--main-text)">48px</em> entre si. Por fim, os elementos internos de um mesmo bloco podem utilizar espaçamentos de <em style="font-style:italic;color:var(--main-text)">16px</em> ou <em style="font-style:italic;color:var(--main-text)">24px</em>, de acordo com a necessidade de organização e hierarquia das informações.
               </p>
             </div>
           </div>
@@ -1506,10 +1511,14 @@
         <article class="step reveal">
           <div class="step__text">
             <span class="step__index"></span>
-            <h3 class="step__title">Camadas</h3>
+            <h3 class="step__title">Camadas e Auto Layout</h3>
             <div class="step__placeholder-text">
-              // Bloco de texto editável — descreva como anotar telas, marcar status<br>
-              // (rascunho, review, aprovado) e identificar variações.
+              <p>
+                Ao nomear as camadas, utilize nomes que <em style="font-style:italic;color:var(--main-text)">representem</em> claramente o <em style="font-style:italic;color:var(--main-text)">conteúdo</em> ou a <em style="font-style:italic;color:var(--main-text)">função</em> de cada elemento. Evite criar camadas desnecessárias: agrupe elementos apenas quando houver uma necessidade real de organização ou estruturação.
+              </p><br/>
+              <p>
+                Priorize o uso de <em style="font-style:italic;color:var(--main-text)">Auto Layout</em> sempre que possível, pois ele facilita a manutenção e a adaptação dos layouts. Frames e Groups devem ser utilizados com cautela e apenas em situações específicas em que ofereçam uma vantagem prática. Na maioria dos casos, o Auto Layout deve ser a opção padrão para a construção das interfaces.
+              </p>
             </div>
           </div>
           <div class="step__media">
@@ -1587,9 +1596,8 @@
               <span class="faq__icon" aria-hidden="true"></span>
             </summary>
             <div class="faq__answer">
-              Reporte direto no canal <span class="code-chip">#design-system</span> com print, link do arquivo
-              e descrição do comportamento esperado. Triagem é semanal, mas issues críticas
-              entram em pauta no mesmo dia.
+              Reporte direto no canal <span class="code-chip">#Figma & Design Library</span> com print, link do arquivo
+              e descrição do comportamento esperado. Ou entre em contato direto com o time de Design System.
             </div>
           </details>
 
@@ -1614,17 +1622,6 @@
               Toda proposta passa por revisão técnica e visual antes de virar release.
             </div>
           </details>
-
-          <details class="faq__item">
-            <summary class="faq__btn">
-              Existe versionamento do Design System?
-              <span class="faq__icon" aria-hidden="true"></span>
-            </summary>
-            <div class="faq__answer">
-              Sim. Seguimos <strong>semver</strong> (major.minor.patch) e publicamos changelog
-              quinzenal. Mudanças <em>breaking</em> são comunicadas com 14 dias de antecedência.
-            </div>
-          </details>
         </div>
 
         <!-- Contact card -->
@@ -1632,36 +1629,29 @@
           <span class="contact-card__label">Time de Design System · online</span>
           <h3 class="contact-card__title">Fale com a gente quando precisar.</h3>
           <p class="contact-card__desc">
-            Estamos aqui para destravar dúvidas, revisar contribuições e manter o sistema vivo.
+            Estamos aqui para tirar dúvidas, revisar contribuições e manter o sistema vivo.
             Não trave — chama.
           </p>
           <ul class="contact-card__list">
             <li>
-              <span class="contact-card__list-icon">#</span>
+              <span class="contact-card__list-icon">#️⃣</span>
               <span class="contact-card__list-text">
-                <strong>Slack</strong>
-                <span>#design-system</span>
+                <strong>Canal no Teams</strong>
+                <span>#Figma & Design Library</span>
               </span>
             </li>
             <li>
-              <span class="contact-card__list-icon">@</span>
+              <span class="contact-card__list-icon">✉️</span>
               <span class="contact-card__list-text">
-                <strong>E-mail</strong>
-                <span>designsystem@empresa.com</span>
+                <strong>Gabriel Sá</strong>
+                <span>gabriel.sa@terceiro-sky.com.br</span>
               </span>
             </li>
             <li>
-              <span class="contact-card__list-icon">🗓</span>
+              <span class="contact-card__list-icon">✉️</span>
               <span class="contact-card__list-text">
-                <strong>Office hours</strong>
-                <span>quintas, 14h–15h · agenda Notion</span>
-              </span>
-            </li>
-            <li>
-              <span class="contact-card__list-icon">📓</span>
-              <span class="contact-card__list-text">
-                <strong>Documentação completa</strong>
-                <span>ds.empresa.com</span>
+                <strong>Guilherme Gouvea</strong>
+                <span>guilherme.gouvea@terceiro-sky.com.br</span>
               </span>
             </li>
           </ul>
@@ -1672,7 +1662,6 @@
         <div>DESIGN PLAYBOOK · © 2026</div>
         <div class="bottom-strip__version">
           <span>v 1.0.0</span>
-          <span>última atualização: mai/2026</span>
           <span>mantido por design system team</span>
         </div>
       </div>
