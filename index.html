@@ -21,40 +21,40 @@
     --bg-primary: #101010;
     --bg-secondary: #1B1B1B;
     --bg-tertiary: #282828;
-    --bg-disable: #464646;
+    --bg-disable: #303030;
     --bg-active: #FFFFFF;
     --hover-bg-primary: #1B1B1B;
     --hover-bg-secondary: #282828;
     --hover-bg-tertiary: #464646;
     --border-primary: #464646;
-    --border-secondary: #333333;
+    --border-secondary: #303030;
 
     /* Main — Brand */
-    --main-text: #71DCD0;
-    --main-bg-primary: #006654;
-    --main-bg-secondary: #003327;
-    --main-hover: #005C46;
-    --main-border: #006654;
-    --main-brand: #00A391;
+    --main-text: #00A2FF;
+    --main-bg-primary: #006EFD;
+    --main-bg-secondary: #00077A;
+    --main-hover: #2837CD;
+    --main-border: #006EFD;
+    --main-brand: #006EFD;
 
     /* Complementary */
-    --complementary-text: #E3E9F6;
-    --complementary-bg-primary: #304664;
-    --complementary-bg-secondary: #17283A;
-    --complementary-brand: #5D7A9C;
+    --complementary-text: #A677D3;
+    --complementary-bg-primary: #6A2BAF;
+    --complementary-bg-secondary: #3D117A;
+    --complementary-brand: #8139BE;
 
     /* Status */
     --success-text: #63BE36;
     --success-bg-primary: #448325;
     --success-bg-secondary: #204210;
     --warning-text: #FFC60B;
-    --warning-bg-primary: #FFC60B;
+    --warning-bg-primary: #A68107;
     --warning-bg-secondary: #473802;
     --error-text: #FF2424;
     --error-bg-primary: #E81C24;
     --error-bg-secondary: #700707;
     --informative-text: #00AEEF;
-    --informative-bg-primary: #00AEEF;
+    --informative-bg-primary: #077CC0;
     --informative-bg-secondary: #003B61;
 
     /* Avatar / Accents */
@@ -70,7 +70,7 @@
     /* Theme-specific decorative */
     --grid-line: rgba(255, 255, 255, 0.04);
     --grid-line-strong: rgba(255, 255, 255, 0.08);
-    --glow: rgba(0, 163, 145, 0.18);
+    --glow: rgba(0, 110, 253, 0.18);
     --noise-opacity: 0.025;
   }
 
@@ -92,31 +92,31 @@
     --border-secondary: #DCDCDC;
 
     /* Main — Brand */
-    --main-text: #006654;
-    --main-bg-primary: #006654;
-    --main-bg-secondary: #ADE9E2;
-    --main-hover: #005C46;
-    --main-border: #006654;
-    --main-brand: #00A391;
+    --main-text: #006EFD;
+    --main-bg-primary: #006EFD;
+    --main-bg-secondary: #B9DEFF;
+    --main-hover: #2837CD;
+    --main-border: #006EFD;
+    --main-brand: #006EFD;
 
     /* Complementary */
-    --complementary-text: #1D3249;
-    --complementary-bg-primary: #304664;
-    --complementary-bg-secondary: #F1F2FA;
-    --complementary-brand: #5D7A9C;
+    --complementary-text: #7733B8;
+    --complementary-bg-primary: #6A2BAF;
+    --complementary-bg-secondary: #D8C6EC;
+    --complementary-brand: #8139BE;
 
     /* Status */
     --success-text: #448325;
     --success-bg-primary: #448325;
     --success-bg-secondary: #D7F1C7;
-    --warning-text: #B88800;
-    --warning-bg-primary: #FFC60B;
+    --warning-text: #A68107;
+    --warning-bg-primary: #A68107;
     --warning-bg-secondary: #FEEDB4;
-    --error-text: #BE0F0F;
-    --error-bg-primary: #E81C24;
+    --error-text: #E81C24;
+    --error-bg-primary: #DA0707;
     --error-bg-secondary: #FFD1D1;
     --informative-text: #077CC0;
-    --informative-bg-primary: #00AEEF;
+    --informative-bg-primary: #077CC0;
     --informative-bg-secondary: #B2EAFF;
 
     /* Avatar / Accents */
@@ -132,7 +132,7 @@
     /* Theme-specific decorative */
     --grid-line: rgba(16, 16, 16, 0.05);
     --grid-line-strong: rgba(16, 16, 16, 0.10);
-    --glow: rgba(0, 102, 84, 0.10);
+    --glow: rgba(0, 110, 253, 0.10);
     --noise-opacity: 0.04;
   }
 
@@ -241,24 +241,12 @@
     font-weight: 600;
   }
 
-  .nav__brand-mark {
-    width: 28px;
-    height: 28px;
-    border-radius: 7px;
-    background:
-      linear-gradient(135deg, var(--main-brand), var(--main-bg-primary));
-    position: relative;
-    display: grid;
-    place-items: center;
-  }
-
-  .nav__brand-mark::after {
-    content: '';
-    position: absolute;
-    inset: 6px;
-    border: 1.5px solid rgba(255,255,255,0.85);
-    border-radius: 3px;
-    transform: rotate(45deg);
+  .nav__brand img {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    object-fit: contain;
   }
 
   .nav__brand-meta {
@@ -731,6 +719,474 @@
   .step__media--gif:hover .step__media-gif-hint,
   .step__media--gif.is-playing .step__media-gif-hint {
     opacity: 0;
+  }
+
+  /* Expand affordance */
+  .step__media-expand {
+    position: absolute;
+    top: 0.875rem;
+    right: 0.875rem;
+    z-index: 3;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    display: grid;
+    place-items: center;
+    background: color-mix(in srgb, var(--bg-primary) 78%, transparent);
+    border: 1px solid var(--border-primary);
+    color: var(--text-secondary);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    pointer-events: none;
+  }
+
+  .step__media-expand svg {
+    width: 15px;
+    height: 15px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .step__media--gif:hover .step__media-expand,
+  .step__media--gif:focus-visible .step__media-expand {
+    opacity: 1;
+    transform: scale(1);
+    color: var(--text-primary);
+    border-color: var(--main-border);
+  }
+
+  .step__media--gif:focus-visible {
+    outline: 2px solid var(--main-brand);
+    outline-offset: 3px;
+  }
+
+  /* ============================================
+     GIF PLAYER MODAL
+     ============================================ */
+  .gp {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1rem, 3vw, 2.5rem);
+  }
+
+  .gp.is-open { display: flex; }
+
+  .gp__backdrop {
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, var(--bg-primary) 82%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    animation: gpFade 0.28s ease;
+  }
+
+  @keyframes gpFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes gpRise {
+    from { opacity: 0; transform: translateY(18px) scale(0.985); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .gp__dialog {
+    position: relative;
+    z-index: 1;
+    width: min(1120px, 100%);
+    height: 100%;
+    max-height: 100%;
+    /* Without these, the flex "automatic minimum size" lets the canvas'
+       intrinsic 1366px width blow the dialog past its max width. */
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 20px;
+    box-shadow: 0 32px 80px -20px rgba(0, 0, 0, 0.55);
+    animation: gpRise 0.34s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .gp__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-secondary);
+    flex-shrink: 0;
+  }
+
+  .gp__head-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  .gp__title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .gp__file {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-disable);
+    letter-spacing: 0.03em;
+  }
+
+  .gp__close {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border-primary);
+    color: var(--text-secondary);
+    background: transparent;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .gp__close:hover {
+    background: var(--hover-bg-tertiary);
+    color: var(--text-primary);
+    border-color: var(--main-border);
+  }
+
+  .gp__close svg {
+    width: 16px; height: 16px;
+    stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round;
+  }
+
+  /* `hidden` must win over the display rules below */
+  .gp [hidden] { display: none !important; }
+
+  .gp__stage {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(0.75rem, 2vw, 1.5rem);
+    background:
+      radial-gradient(circle at 1px 1px, var(--grid-line-strong) 1px, transparent 0)
+      var(--bg-primary);
+    background-size: 16px 16px;
+  }
+
+  .gp__canvas {
+    display: block;
+    flex: 0 1 auto;
+    min-width: 0;
+    min-height: 0;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  .gp__fallback-img {
+    display: block;
+    flex: 0 1 auto;
+    min-height: 0;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+
+  .gp__state {
+    flex: 1 1 auto;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+
+  .gp__spinner {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid var(--border-primary);
+    border-top-color: var(--main-brand);
+    animation: gpSpin 0.7s linear infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes gpSpin { to { transform: rotate(360deg); } }
+
+  .gp__note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-disable);
+    max-width: 62ch;
+    line-height: 1.7;
+    flex-shrink: 0;
+  }
+
+  .gp__note b {
+    color: var(--main-text);
+    font-weight: 400;
+  }
+
+  .gp__note-title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+  }
+
+  .gp__fallback-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  /* ---- Controls ---- */
+  .gp__controls {
+    flex-shrink: 0;
+    border-top: 1px solid var(--border-secondary);
+    padding: 1rem 1.25rem 1.125rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    background: var(--bg-secondary);
+  }
+
+  .gp__controls[hidden] { display: none; }
+
+  /* Timeline */
+  .gp__timeline {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+  }
+
+  .gp__time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.03em;
+    flex-shrink: 0;
+    min-width: 6.5ch;
+  }
+  .gp__time--end { text-align: right; color: var(--text-disable); }
+
+  .gp__scrub {
+    -webkit-appearance: none;
+    appearance: none;
+    flex: 1;
+    height: 22px;
+    background: transparent;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  .gp__scrub::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      var(--main-brand) 0%,
+      var(--main-brand) var(--gp-progress, 0%),
+      var(--bg-tertiary) var(--gp-progress, 0%),
+      var(--bg-tertiary) 100%
+    );
+    border: 1px solid var(--border-secondary);
+  }
+
+  .gp__scrub::-moz-range-track {
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      var(--main-brand) 0%,
+      var(--main-brand) var(--gp-progress, 0%),
+      var(--bg-tertiary) var(--gp-progress, 0%),
+      var(--bg-tertiary) 100%
+    );
+    border: 1px solid var(--border-secondary);
+  }
+
+  .gp__scrub::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--bg-active);
+    border: 3px solid var(--main-brand);
+    margin-top: -5.5px;
+    transition: transform 0.15s ease;
+  }
+
+  .gp__scrub::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--bg-active);
+    border: 3px solid var(--main-brand);
+    transition: transform 0.15s ease;
+  }
+
+  .gp__scrub:hover::-webkit-slider-thumb { transform: scale(1.18); }
+  .gp__scrub:hover::-moz-range-thumb { transform: scale(1.18); }
+  .gp__scrub:focus-visible { outline: 2px solid var(--main-brand); outline-offset: 4px; border-radius: 999px; }
+
+  /* Buttons row */
+  .gp__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .gp__group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .gp__btn {
+    height: 38px;
+    min-width: 38px;
+    padding: 0 0.7rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-primary);
+    background: transparent;
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    transition: all 0.2s ease;
+  }
+
+  .gp__btn:hover:not(:disabled) {
+    background: var(--hover-bg-tertiary);
+    color: var(--text-primary);
+    border-color: var(--main-border);
+  }
+
+  .gp__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .gp__btn svg {
+    width: 14px; height: 14px;
+    stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  .gp__btn--play {
+    background: var(--main-bg-primary);
+    border-color: var(--main-border);
+    color: #FFFFFF;
+    min-width: 96px;
+  }
+  .gp__btn--play:hover:not(:disabled) {
+    background: var(--main-hover);
+    border-color: var(--main-hover);
+    color: #FFFFFF;
+  }
+  .gp__btn--play svg { fill: currentColor; stroke: none; }
+
+  .gp__counter {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-disable);
+    letter-spacing: 0.04em;
+    padding-left: 0.25rem;
+  }
+  .gp__counter strong {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .gp__speed {
+    display: flex;
+    border: 1px solid var(--border-primary);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .gp__speed-btn {
+    height: 36px;
+    padding: 0 0.65rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    background: transparent;
+    border-right: 1px solid var(--border-primary);
+    transition: all 0.18s ease;
+  }
+  .gp__speed-btn:last-child { border-right: none; }
+  .gp__speed-btn:hover { background: var(--hover-bg-tertiary); color: var(--text-primary); }
+  .gp__speed-btn.is-active {
+    background: var(--main-bg-primary);
+    color: #FFFFFF;
+  }
+
+  .gp__hint {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    color: var(--text-disable);
+    letter-spacing: 0.03em;
+  }
+  .gp__hint kbd {
+    font-family: inherit;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-secondary);
+    border-radius: 4px;
+    padding: 0.1em 0.4em;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 720px) {
+    .gp__buttons { justify-content: center; }
+    .gp__hint { display: none; }
+    .gp__dialog { border-radius: 16px; }
   }
 
   /* ============================================
@@ -1410,10 +1866,10 @@
     <div class="container">
       <div class="nav__inner">
         <a href="#top" class="nav__brand">
-          <span class="nav__brand-mark" aria-hidden="true"></span>
+          <img src="img/logo-frequency.png" alt="Frequency logo" width="32" height="32">
           <span class="nav__brand-meta">
-            <strong>DESIGN</strong>
-            <small>playbook</small>
+            <strong>Frequency</strong>
+            <small>Design System</small>
           </span>
         </a>
         <div class="nav__links">
@@ -1512,7 +1968,8 @@
               </p>
             </div>
           </div>
-          <div class="step__media step__media--gif" data-gif="img/setup-01a.gif">
+          <div class="step__media step__media--gif" role="button" tabindex="0" data-gif="img/setup-01a.gif">
+            <span class="step__media-expand" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
             <img class="step__media-img" alt="Bibliotecas" style="object-fit: fill;">
             <div class="step__media-gif-hint" aria-hidden="true">
               <div class="step__media-gif-hint__icon">
@@ -1520,7 +1977,7 @@
               </div>
               <div class="step__media-gif-hint__text">
                 <span class="step__media-gif-hint__label">Passe o mouse para ver como fazer</span>
-                <span class="step__media-gif-hint__sub">hover to play</span>
+                <span class="step__media-gif-hint__sub">clique para ampliar e controlar</span>
               </div>
             </div>
           </div>
@@ -1542,7 +1999,8 @@
               </p>
             </div>
           </div>
-          <div class="step__media step__media--gif" data-gif="img/setup-02a.gif">
+          <div class="step__media step__media--gif" role="button" tabindex="0" data-gif="img/setup-02a.gif">
+            <span class="step__media-expand" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
             <img class="step__media-img" alt="Organizando as páginas" style="object-fit: fill;">
             <div class="step__media-gif-hint" aria-hidden="true">
               <div class="step__media-gif-hint__icon">
@@ -1550,7 +2008,7 @@
               </div>
               <div class="step__media-gif-hint__text">
                 <span class="step__media-gif-hint__label">Passe o mouse para ver como fazer</span>
-                <span class="step__media-gif-hint__sub">hover to play</span>
+                <span class="step__media-gif-hint__sub">clique para ampliar e controlar</span>
               </div>
             </div>
           </div>
@@ -1570,7 +2028,8 @@
               </p> 
             </div>
           </div>
-          <div class="step__media step__media--gif" data-gif="img/setup-03a.gif">
+          <div class="step__media step__media--gif" role="button" tabindex="0" data-gif="img/setup-03a.gif">
+            <span class="step__media-expand" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
             <img class="step__media-img" alt="Organizando a section" style="object-fit: fill;">
             <div class="step__media-gif-hint" aria-hidden="true">
               <div class="step__media-gif-hint__icon">
@@ -1578,7 +2037,7 @@
               </div>
               <div class="step__media-gif-hint__text">
                 <span class="step__media-gif-hint__label">Passe o mouse para ver como fazer</span>
-                <span class="step__media-gif-hint__sub">hover to play</span>
+                <span class="step__media-gif-hint__sub">clique para ampliar e controlar</span>
               </div>
             </div>
           </div>
@@ -1595,7 +2054,8 @@
               </p>
             </div>
           </div>
-          <div class="step__media step__media--gif" data-gif="img/setup-04a.gif">
+          <div class="step__media step__media--gif" role="button" tabindex="0" data-gif="img/setup-04a.gif">
+            <span class="step__media-expand" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
             <img class="step__media-img" alt="Organizando as telas" style="object-fit: fill;">
             <div class="step__media-gif-hint" aria-hidden="true">
               <div class="step__media-gif-hint__icon">
@@ -1603,7 +2063,7 @@
               </div>
               <div class="step__media-gif-hint__text">
                 <span class="step__media-gif-hint__label">Passe o mouse para ver como fazer</span>
-                <span class="step__media-gif-hint__sub">hover to play</span>
+                <span class="step__media-gif-hint__sub">clique para ampliar e controlar</span>
               </div>
             </div>
           </div>
@@ -1624,7 +2084,8 @@
               </p> 
             </div>
           </div>
-          <div class="step__media step__media--gif" data-gif="img/setup-05a.gif">
+          <div class="step__media step__media--gif" role="button" tabindex="0" data-gif="img/setup-05a.gif">
+            <span class="step__media-expand" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
             <img class="step__media-img" alt="Conectando telas" style="object-fit: fill;">
             <div class="step__media-gif-hint" aria-hidden="true">
               <div class="step__media-gif-hint__icon">
@@ -1632,7 +2093,7 @@
               </div>
               <div class="step__media-gif-hint__text">
                 <span class="step__media-gif-hint__label">Passe o mouse para ver como fazer</span>
-                <span class="step__media-gif-hint__sub">hover to play</span>
+                <span class="step__media-gif-hint__sub">clique para ampliar e controlar</span>
               </div>
             </div>
           </div>
@@ -1690,7 +2151,8 @@
               </p>
             </div>
           </div>
-          <div class="step__media step__media--gif" data-gif="img/screens-01a.gif">
+          <div class="step__media step__media--gif" role="button" tabindex="0" data-gif="img/screens-01a.gif">
+            <span class="step__media-expand" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
             <img class="step__media-img" alt="Montando as telas" style="object-fit: fill;">
             <div class="step__media-gif-hint" aria-hidden="true">
               <div class="step__media-gif-hint__icon">
@@ -1698,7 +2160,7 @@
               </div>
               <div class="step__media-gif-hint__text">
                 <span class="step__media-gif-hint__label">Passe o mouse para ver como fazer</span>
-                <span class="step__media-gif-hint__sub">hover to play</span>
+                <span class="step__media-gif-hint__sub">clique para ampliar e controlar</span>
               </div>
             </div>
           </div>
@@ -1714,7 +2176,8 @@
               </p>
             </div>
           </div>
-          <div class="step__media step__media--gif" data-gif="img/screens-02a.gif">
+          <div class="step__media step__media--gif" role="button" tabindex="0" data-gif="img/screens-02a.gif">
+            <span class="step__media-expand" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
             <img class="step__media-img" alt="Espaçamento" style="object-fit: fill;">
             <div class="step__media-gif-hint" aria-hidden="true">
               <div class="step__media-gif-hint__icon">
@@ -1722,7 +2185,7 @@
               </div>
               <div class="step__media-gif-hint__text">
                 <span class="step__media-gif-hint__label">Passe o mouse para ver como fazer</span>
-                <span class="step__media-gif-hint__sub">hover to play</span>
+                <span class="step__media-gif-hint__sub">clique para ampliar e controlar</span>
               </div>
             </div>
           </div>
@@ -1741,7 +2204,8 @@
               </p>
             </div>
           </div>
-          <div class="step__media step__media--gif" data-gif="img/screens-03a.gif">
+          <div class="step__media step__media--gif" role="button" tabindex="0" data-gif="img/screens-03a.gif">
+            <span class="step__media-expand" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
             <img class="step__media-img" alt="Camadas e Auto Layout" style="object-fit: fill;">
             <div class="step__media-gif-hint" aria-hidden="true">
               <div class="step__media-gif-hint__icon">
@@ -1749,7 +2213,7 @@
               </div>
               <div class="step__media-gif-hint__text">
                 <span class="step__media-gif-hint__label">Passe o mouse para ver como fazer</span>
-                <span class="step__media-gif-hint__sub">hover to play</span>
+                <span class="step__media-gif-hint__sub">clique para ampliar e controlar</span>
               </div>
             </div>
           </div>
@@ -1768,7 +2232,8 @@
               </p>
             </div>
           </div>
-          <div class="step__media step__media--gif" data-gif="img/screens-04a.gif">
+          <div class="step__media step__media--gif" role="button" tabindex="0" data-gif="img/screens-04a.gif">
+            <span class="step__media-expand" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
             <img class="step__media-img" alt="Componentes" style="object-fit: fill;">
             <div class="step__media-gif-hint" aria-hidden="true">
               <div class="step__media-gif-hint__icon">
@@ -1776,7 +2241,7 @@
               </div>
               <div class="step__media-gif-hint__text">
                 <span class="step__media-gif-hint__label">Passe o mouse para ver como fazer</span>
-                <span class="step__media-gif-hint__sub">hover to play</span>
+                <span class="step__media-gif-hint__sub">clique para ampliar e controlar</span>
               </div>
             </div>
           </div>
@@ -1793,11 +2258,11 @@
           <h4 class="callout__title">Nada de telas soltas, frames sem nome, cores e fontes aplicadas na mão ou "detach" em componentes.</h4>
           <p class="callout__text">
             Esses comportamentos quebram a propagação de melhorias e
-            poluem a biblioteca. Siga as diretrizes e se precisa de algo diferente, abra uma proposta — não dê Detach.
-            O mesmo vale para usar HEX direto na propriedade em vez do token. 
-            um fluxo.
+            poluem a biblioteca. Siga as diretrizes e, se precisar de algo diferente, abra uma proposta — não dê Detach.
+            O mesmo vale para usar HEX direto na propriedade em vez do token.
           </p>
         </div>
+      </div>
 
     </div>
   </section>
@@ -1890,6 +2355,73 @@
     </div>
   </footer>
 
+  <!-- ============== GIF PLAYER MODAL ============== -->
+  <div class="gp" id="gifPlayer" role="dialog" aria-modal="true" aria-labelledby="gpTitle" aria-hidden="true">
+    <div class="gp__backdrop" data-gp-close></div>
+
+    <div class="gp__dialog" role="document">
+      <header class="gp__head">
+        <div class="gp__head-text">
+          <span class="gp__title" id="gpTitle">Carregando…</span>
+          <span class="gp__file" id="gpFile"></span>
+        </div>
+        <button class="gp__close" id="gpClose" aria-label="Fechar (Esc)">
+          <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </header>
+
+      <div class="gp__stage" id="gpStage">
+        <div class="gp__state" id="gpLoading">
+          <div class="gp__spinner"></div>
+          <span>Decodificando frames do GIF…</span>
+        </div>
+        <canvas class="gp__canvas" id="gpCanvas" hidden></canvas>
+      </div>
+
+      <div class="gp__controls" id="gpControls" hidden>
+        <div class="gp__timeline">
+          <span class="gp__time" id="gpCurrent">0.00s</span>
+          <input class="gp__scrub" id="gpScrub" type="range" min="0" max="1000" value="0" step="1"
+                 aria-label="Linha do tempo do GIF">
+          <span class="gp__time gp__time--end" id="gpDuration">0.00s</span>
+        </div>
+
+        <div class="gp__buttons">
+          <div class="gp__group">
+            <button class="gp__btn" id="gpPrev" aria-label="Frame anterior" title="Frame anterior (←)">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+
+            <button class="gp__btn gp__btn--play" id="gpPlay" aria-label="Reproduzir ou pausar">
+              <svg id="gpPlayIcon" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21"/></svg>
+              <span id="gpPlayLabel">PLAY</span>
+            </button>
+
+            <button class="gp__btn" id="gpNext" aria-label="Próximo frame" title="Próximo frame (→)">
+              <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+
+            <button class="gp__btn" id="gpRestart" aria-label="Reiniciar" title="Reiniciar (R)">
+              <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+            </button>
+
+            <span class="gp__counter">frame <strong id="gpFrame">1</strong> / <span id="gpFrames">1</span></span>
+          </div>
+
+          <div class="gp__group">
+            <span class="gp__hint"><kbd>espaço</kbd> play · <kbd>←</kbd><kbd>→</kbd> frame · <kbd>esc</kbd> fechar</span>
+            <div class="gp__speed" id="gpSpeed">
+              <button class="gp__speed-btn" data-speed="0.25">0.25×</button>
+              <button class="gp__speed-btn" data-speed="0.5">0.5×</button>
+              <button class="gp__speed-btn is-active" data-speed="1">1×</button>
+              <button class="gp__speed-btn" data-speed="2">2×</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     // ===== Theme toggle =====
     const toggle = document.getElementById('themeToggle');
@@ -1905,10 +2437,11 @@
       setTheme(next);
     });
 
-    // ===== GIF on hover =====
+    // ===== GIF on hover (preview) + click to open player =====
     document.querySelectorAll('.step__media--gif').forEach(el => {
       const img = el.querySelector('.step__media-img');
       const gif = el.dataset.gif;
+
       el.addEventListener('mouseenter', () => {
         img.src = gif;
         el.classList.add('is-playing');
@@ -1917,7 +2450,575 @@
         img.removeAttribute('src');
         el.classList.remove('is-playing');
       });
+
+      const open = () => {
+        const article = el.closest('.step');
+        const title = article?.querySelector('.step__title')?.textContent.trim()
+                   || img.getAttribute('alt') || 'Visualização';
+        GifPlayer.open(gif, title);
+      };
+
+      el.addEventListener('click', open);
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+      });
     });
+
+    /* ================================================================
+       GIF PLAYER — decodifica os frames do GIF para permitir
+       play/pause, scrub na timeline e navegação frame a frame.
+       (um <img> com GIF não pode ser pausado nem rebobinado pelo browser)
+       ================================================================ */
+    const GifPlayer = (() => {
+
+      /* ---------- Low level readers ---------- */
+      function readSubBlocks(d, p) {
+        const parts = []; let size, total = 0;
+        while ((size = d[p++]) !== 0) {
+          parts.push(d.subarray(p, p + size));
+          p += size; total += size;
+        }
+        const out = new Uint8Array(total); let o = 0;
+        for (const c of parts) { out.set(c, o); o += c.length; }
+        return { data: out, pos: p };
+      }
+
+      function skipSubBlocks(d, p) {
+        let size;
+        while ((size = d[p++]) !== 0) p += size;
+        return p;
+      }
+
+      function lzwDecode(minCodeSize, data, pixelCount) {
+        const MAX = 4096;
+        const clearCode = 1 << minCodeSize;
+        const eoiCode = clearCode + 1;
+        let codeSize = minCodeSize + 1;
+        let codeMask = (1 << codeSize) - 1;
+
+        const prefix = new Int32Array(MAX);
+        const suffix = new Uint8Array(MAX);
+        const stack  = new Uint8Array(MAX + 1);
+        for (let i = 0; i < clearCode; i++) { prefix[i] = 0; suffix[i] = i; }
+
+        let available = clearCode + 2;
+        const out = new Uint8Array(pixelCount);
+        let outIdx = 0, bitBuf = 0, bitCount = 0, pos = 0;
+        let old = -1, first = 0, top = 0;
+
+        while (outIdx < pixelCount) {
+          if (bitCount < codeSize) {
+            if (pos >= data.length) break;
+            bitBuf |= data[pos++] << bitCount;
+            bitCount += 8;
+            continue;
+          }
+          let code = bitBuf & codeMask;
+          bitBuf >>= codeSize;
+          bitCount -= codeSize;
+
+          if (code === clearCode) {
+            codeSize = minCodeSize + 1;
+            codeMask = (1 << codeSize) - 1;
+            available = clearCode + 2;
+            old = -1;
+            continue;
+          }
+          if (code === eoiCode) break;
+
+          if (old === -1) {
+            out[outIdx++] = suffix[code];
+            old = code; first = code;
+            continue;
+          }
+
+          const inCode = code;
+          if (code >= available) { stack[top++] = first; code = old; }
+          while (code >= clearCode) { stack[top++] = suffix[code]; code = prefix[code]; }
+          first = suffix[code];
+          stack[top++] = first;
+
+          if (available < MAX) {
+            prefix[available] = old;
+            suffix[available] = first;
+            available++;
+            if (available === (1 << codeSize) && codeSize < 12) {
+              codeSize++;
+              codeMask = (1 << codeSize) - 1;
+            }
+          }
+          old = inCode;
+          while (top > 0 && outIdx < pixelCount) out[outIdx++] = stack[--top];
+        }
+        return out;
+      }
+
+      function deinterlace(src, w, h) {
+        const dst = new Uint8Array(src.length);
+        const offsets = [0, 4, 2, 1], steps = [8, 8, 4, 2];
+        let row = 0;
+        for (let pass = 0; pass < 4; pass++) {
+          for (let y = offsets[pass]; y < h; y += steps[pass]) {
+            dst.set(src.subarray(row * w, row * w + w), y * w);
+            row++;
+          }
+        }
+        return dst;
+      }
+
+      /* ---------- Structure parse (no pixel decoding yet) ----------
+         Only reads headers/offsets, so opening is fast and memory stays low.
+         Frame pixels are LZW-decoded on demand by the renderer.          */
+      function parseGIF(buffer) {
+        const d = new Uint8Array(buffer);
+        if (d[0] !== 0x47 || d[1] !== 0x49 || d[2] !== 0x46) throw new Error('arquivo não é um GIF');
+
+        let p = 6;
+        const width  = d[p] | (d[p + 1] << 8); p += 2;
+        const height = d[p] | (d[p + 1] << 8); p += 2;
+        const flags  = d[p++];
+        p += 2;
+
+        let gct = null;
+        if (flags & 0x80) {
+          const size = 2 << (flags & 7);
+          gct = d.subarray(p, p + size * 3);
+          p += size * 3;
+        }
+
+        const frames = [];
+        let gce = null;
+
+        while (p < d.length) {
+          const block = d[p++];
+
+          if (block === 0x21) {
+            const label = d[p++];
+            if (label === 0xF9) {
+              const size = d[p++];
+              const packed = d[p];
+              gce = {
+                disposal: (packed >> 2) & 7,
+                transparent: (packed & 1) ? d[p + 3] : -1,
+                delay: d[p + 1] | (d[p + 2] << 8)
+              };
+              p += size;
+              p++;
+            } else {
+              p = skipSubBlocks(d, p);
+            }
+
+          } else if (block === 0x2C) {
+            const left = d[p] | (d[p + 1] << 8); p += 2;
+            const top  = d[p] | (d[p + 1] << 8); p += 2;
+            const w    = d[p] | (d[p + 1] << 8); p += 2;
+            const h    = d[p] | (d[p + 1] << 8); p += 2;
+            const f    = d[p++];
+
+            let lct = null;
+            if (f & 0x80) {
+              const size = 2 << (f & 7);
+              lct = d.subarray(p, p + size * 3);
+              p += size * 3;
+            }
+
+            const minCodeSize = d[p++];
+            const dataPos = p;
+            p = skipSubBlocks(d, p);
+
+            frames.push({
+              left, top, w, h,
+              palette: lct || gct,
+              interlaced: !!(f & 0x40),
+              minCodeSize, dataPos,
+              disposal: gce ? gce.disposal : 0,
+              transparent: gce ? gce.transparent : -1,
+              delay: gce ? gce.delay : 0
+            });
+            gce = null;
+
+          } else {
+            break;
+          }
+        }
+
+        if (!frames.length) throw new Error('nenhum frame encontrado');
+
+        const starts = []; let t = 0;
+        for (const fr of frames) {
+          starts.push(t);
+          const cs = fr.delay;
+          fr.ms = (cs <= 1 ? 100 : cs * 10);
+          t += fr.ms;
+        }
+
+        return { bytes: d, width, height, frames, starts, total: t };
+      }
+
+      function decodeIndices(d, fr) {
+        const sub = readSubBlocks(d, fr.dataPos);
+        let idx = lzwDecode(fr.minCodeSize, sub.data, fr.w * fr.h);
+        if (fr.interlaced) idx = deinterlace(idx, fr.w, fr.h);
+        return idx;
+      }
+
+      /* ---------- Renderer ----------
+         Keeps only ~16 keyframe snapshots instead of one canvas per frame.
+         Seeking restores the nearest keyframe and replays a few frames.   */
+      function createRenderer(clip, target) {
+        const ctx = target.getContext('2d', { willReadFrequently: true });
+        const patch = document.createElement('canvas');
+        const pctx = patch.getContext('2d');
+
+        const n = clip.frames.length;
+        const K = Math.max(6, Math.min(40, Math.ceil(n / 16)));
+        const keyframes = [];
+        let cur = -1;
+        let pendingPrev = null;
+
+        const full = () => [0, 0, clip.width, clip.height];
+
+        function drawPatch(i) {
+          const fr = clip.frames[i];
+          const indices = decodeIndices(clip.bytes, fr);
+          patch.width = fr.w; patch.height = fr.h;
+          const img = pctx.createImageData(fr.w, fr.h);
+          const px = img.data, pal = fr.palette;
+          for (let k = 0; k < indices.length; k++) {
+            const idx = indices[k], o = k * 4;
+            if (idx === fr.transparent || !pal) { px[o + 3] = 0; continue; }
+            const c = idx * 3;
+            px[o] = pal[c]; px[o + 1] = pal[c + 1]; px[o + 2] = pal[c + 2]; px[o + 3] = 255;
+          }
+          pctx.putImageData(img, 0, 0);
+          ctx.drawImage(patch, fr.left, fr.top);
+        }
+
+        function applyDisposal(i, prev) {
+          const fr = clip.frames[i];
+          if (fr.disposal === 2) ctx.clearRect(fr.left, fr.top, fr.w, fr.h);
+          else if (fr.disposal === 3 && prev) ctx.putImageData(prev, 0, 0);
+        }
+
+        function snapshot() {
+          const c = document.createElement('canvas');
+          c.width = clip.width; c.height = clip.height;
+          c.getContext('2d').drawImage(target, 0, 0);
+          return c;
+        }
+
+        // Single sequential pass that records keyframes.
+        async function prepare(onProgress) {
+          target.width = clip.width;
+          target.height = clip.height;
+          ctx.clearRect(...full());
+
+          for (let i = 0; i < n; i++) {
+            if (i % K === 0) keyframes[i / K] = snapshot();
+            const prev = clip.frames[i].disposal === 3 ? ctx.getImageData(...full()) : null;
+            drawPatch(i);
+            applyDisposal(i, prev);
+            if (i % 10 === 0) {
+              onProgress && onProgress((i + 1) / n);
+              await new Promise(r => setTimeout(r, 0));
+            }
+          }
+          ctx.clearRect(...full());
+          cur = -1; pendingPrev = null;
+        }
+
+        function advanceTo(i) {
+          for (let j = cur; j < i; j++) {
+            applyDisposal(j, pendingPrev);
+            pendingPrev = clip.frames[j + 1].disposal === 3 ? ctx.getImageData(...full()) : null;
+            drawPatch(j + 1);
+          }
+          cur = i;
+        }
+
+        function render(i) {
+          if (i === cur) return;
+          if (cur >= 0 && i > cur && i - cur <= K) { advanceTo(i); return; }
+
+          const k = Math.floor(i / K);
+          const kf = keyframes[k];
+          const startIdx = k * K;
+          ctx.clearRect(...full());
+          if (kf) ctx.drawImage(kf, 0, 0);
+
+          pendingPrev = clip.frames[startIdx].disposal === 3 ? ctx.getImageData(...full()) : null;
+          drawPatch(startIdx);
+          cur = startIdx;
+          advanceTo(i);
+        }
+
+        function reset() { cur = -1; pendingPrev = null; }
+
+        return { prepare, render, reset };
+      }
+
+      /* ---------- DOM ---------- */
+      const modal    = document.getElementById('gifPlayer');
+      const canvas   = document.getElementById('gpCanvas');
+      const loading  = document.getElementById('gpLoading');
+      const controls = document.getElementById('gpControls');
+      const titleEl  = document.getElementById('gpTitle');
+      const fileEl   = document.getElementById('gpFile');
+      const scrub    = document.getElementById('gpScrub');
+      const curEl    = document.getElementById('gpCurrent');
+      const durEl    = document.getElementById('gpDuration');
+      const frameEl  = document.getElementById('gpFrame');
+      const framesEl = document.getElementById('gpFrames');
+      const playBtn  = document.getElementById('gpPlay');
+      const playIcon = document.getElementById('gpPlayIcon');
+      const playLbl  = document.getElementById('gpPlayLabel');
+
+      const cache = new Map();   // src -> { clip, renderer }
+
+      let clip = null, renderer = null;
+      let index = 0, elapsed = 0;
+      let playing = false, speed = 1;
+      let rafId = null, lastTs = 0;
+      let scrubbing = false, seekPending = null, seekRaf = null;
+      let lastFocus = null, token = 0;
+
+      const fmt = ms => (ms / 1000).toFixed(2) + 's';
+      const ICON_PLAY  = '<polygon points="6 3 20 12 6 21"/>';
+      const ICON_PAUSE = '<rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>';
+
+      function frameAt(ms) {
+        const s = clip.starts;
+        let lo = 0, hi = s.length - 1, res = 0;
+        while (lo <= hi) {
+          const mid = (lo + hi) >> 1;
+          if (s[mid] <= ms) { res = mid; lo = mid + 1; } else hi = mid - 1;
+        }
+        return res;
+      }
+
+      function syncUI() {
+        const pct = clip.total ? (elapsed / clip.total) * 100 : 0;
+        scrub.style.setProperty('--gp-progress', pct.toFixed(2) + '%');
+        if (!scrubbing) scrub.value = String(Math.round(pct * 10));
+        curEl.textContent = fmt(elapsed);
+        frameEl.textContent = String(index + 1);
+      }
+
+      function setPlaying(on) {
+        playing = on;
+        playIcon.innerHTML = on ? ICON_PAUSE : ICON_PLAY;
+        playLbl.textContent = on ? 'PAUSE' : 'PLAY';
+        if (on) { lastTs = performance.now(); rafId = requestAnimationFrame(tick); }
+        else if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      }
+
+      function tick(ts) {
+        if (!playing || !clip) return;
+        elapsed += (ts - lastTs) * speed;
+        lastTs = ts;
+        if (elapsed >= clip.total) elapsed %= clip.total;
+        const i = frameAt(elapsed);
+        if (i !== index) { index = i; renderer.render(index); }
+        syncUI();
+        rafId = requestAnimationFrame(tick);
+      }
+
+      function seek(ms) {
+        elapsed = Math.max(0, Math.min(ms, clip.total - 0.001));
+        index = frameAt(elapsed);
+        renderer.render(index);
+        syncUI();
+      }
+
+      // Throttle scrubbing to one decode per animation frame
+      function seekThrottled(ms) {
+        seekPending = ms;
+        if (seekRaf) return;
+        seekRaf = requestAnimationFrame(() => {
+          seekRaf = null;
+          if (seekPending !== null && clip) seek(seekPending);
+          seekPending = null;
+        });
+      }
+
+      function step(delta) {
+        setPlaying(false);
+        index = (index + delta + clip.frames.length) % clip.frames.length;
+        elapsed = clip.starts[index];
+        renderer.render(index);
+        syncUI();
+      }
+
+      function setLoading(msg) {
+        loading.innerHTML = '<div class="gp__spinner"></div><span>' + msg + '</span>';
+        loading.hidden = false;
+        canvas.hidden = true;
+        controls.hidden = true;
+      }
+
+      const IS_FILE = location.protocol === 'file:';
+
+      // fetch() is blocked on file://; XHR still works in a few setups, so try both.
+      function loadBytes(src) {
+        return fetch(src)
+          .then(res => {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.arrayBuffer();
+          })
+          .catch(err => new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', src, true);
+            xhr.responseType = 'arraybuffer';
+            xhr.onload = () => {
+              if (xhr.response && xhr.response.byteLength) resolve(xhr.response);
+              else reject(err);
+            };
+            xhr.onerror = () => reject(err);
+            try { xhr.send(); } catch (e) { reject(err); }
+          }));
+      }
+
+      function showFallback(src, reason) {
+        const note = IS_FILE
+          ? '<div class="gp__note-title">Controles indisponíveis nesta forma de abertura</div>' +
+            'A timeline precisa ler o arquivo do GIF, e o navegador bloqueia essa leitura ' +
+            'quando a página é aberta direto do disco (<b>file://</b>).<br>' +
+            'Rode um servidor local na pasta do projeto e acesse por <b>http://localhost</b>:<br>' +
+            '<b>npx serve</b> &nbsp;·&nbsp; <b>python3 -m http.server</b>'
+          : '<div class="gp__note-title">Não foi possível ler o arquivo</div>' +
+            'Motivo: ' + reason + '.<br>Verifique se <b>' + src + '</b> existe no servidor.';
+
+        loading.innerHTML =
+          '<img class="gp__fallback-img" src="' + src + '" alt="">' +
+          '<div class="gp__note">' + note + '</div>' +
+          '<div class="gp__fallback-actions">' +
+            '<button class="gp__btn" id="gpReplay">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+              'stroke-linecap="round" stroke-linejoin="round">' +
+              '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg> REINICIAR' +
+            '</button>' +
+          '</div>';
+
+        const replay = document.getElementById('gpReplay');
+        const fbImg = loading.querySelector('.gp__fallback-img');
+        if (replay && fbImg) {
+          replay.addEventListener('click', () => {
+            fbImg.src = '';
+            fbImg.src = src + '?t=' + Date.now();
+          });
+        }
+
+        loading.hidden = false;
+        canvas.hidden = true;
+        controls.hidden = true;
+      }
+
+      async function open(src, title) {
+        const my = ++token;
+        lastFocus = document.activeElement;
+
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        titleEl.textContent = title || 'Visualização';
+        fileEl.textContent = src;
+        clip = null; renderer = null;
+        setLoading('Carregando GIF…');
+
+        try {
+          let entry = cache.get(src);
+
+          if (!entry) {
+            const buf = await loadBytes(src);
+            if (my !== token) return;
+
+            const c = parseGIF(buf);
+            const r = createRenderer(c, canvas);
+            await r.prepare(pct => {
+              if (my === token) setLoading('Decodificando frames… ' + Math.round(pct * 100) + '%');
+            });
+            if (my !== token) return;
+            entry = { clip: c, renderer: r };
+            cache.set(src, entry);
+          }
+
+          clip = entry.clip;
+          renderer = entry.renderer;
+
+          canvas.width = clip.width;
+          canvas.height = clip.height;
+          renderer.reset();
+
+          loading.hidden = true;
+          canvas.hidden = false;
+          controls.hidden = false;
+
+          index = 0; elapsed = 0;
+          framesEl.textContent = String(clip.frames.length);
+          durEl.textContent = fmt(clip.total);
+          renderer.render(0);
+          syncUI();
+          setPlaying(true);
+          playBtn.focus();
+
+        } catch (err) {
+          if (my === token) showFallback(src, err.message || 'erro desconhecido');
+        }
+      }
+
+      function close() {
+        token++;
+        setPlaying(false);
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        clip = null; renderer = null;
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+
+      /* ---------- Events ---------- */
+      document.getElementById('gpClose').addEventListener('click', close);
+      modal.querySelectorAll('[data-gp-close]').forEach(el => el.addEventListener('click', close));
+
+      playBtn.addEventListener('click', () => { if (clip) setPlaying(!playing); });
+      document.getElementById('gpPrev').addEventListener('click', () => clip && step(-1));
+      document.getElementById('gpNext').addEventListener('click', () => clip && step(1));
+      document.getElementById('gpRestart').addEventListener('click', () => {
+        if (!clip) return;
+        seek(0); setPlaying(true);
+      });
+
+      scrub.addEventListener('pointerdown', () => { scrubbing = true; setPlaying(false); });
+      scrub.addEventListener('pointerup',   () => { scrubbing = false; });
+      scrub.addEventListener('input', () => {
+        if (!clip) return;
+        seekThrottled((Number(scrub.value) / 1000) * clip.total);
+      });
+
+      document.getElementById('gpSpeed').addEventListener('click', e => {
+        const btn = e.target.closest('.gp__speed-btn');
+        if (!btn) return;
+        speed = Number(btn.dataset.speed);
+        document.querySelectorAll('.gp__speed-btn').forEach(b => b.classList.toggle('is-active', b === btn));
+      });
+
+      document.addEventListener('keydown', e => {
+        if (!modal.classList.contains('is-open')) return;
+        if (e.key === 'Escape') { close(); return; }
+        if (!clip) return;
+        if (e.key === ' ')               { e.preventDefault(); setPlaying(!playing); }
+        else if (e.key === 'ArrowLeft')  { e.preventDefault(); step(-1); }
+        else if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
+        else if (e.key.toLowerCase() === 'r') { seek(0); setPlaying(true); }
+      });
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden && playing) setPlaying(false);
+      });
+
+      return { open, close };
+    })();
 
     // ===== Scroll reveal =====
     const io = new IntersectionObserver((entries) => {
